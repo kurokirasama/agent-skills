@@ -1,0 +1,2312 @@
+{
+  "c": [
+    {
+      "c": 2080,
+      "n": "BT Connection",
+      "p": {
+        "p": [
+          {
+            "a": "Bundle",
+            "u": 0,
+            "s": "",
+            "m": "Output Variables"
+          },
+          {
+            "a": "Str",
+            "u": 1,
+            "s": "btn:1:?",
+            "m": "Name"
+          },
+          {
+            "a": "Str",
+            "u": 2,
+            "s": "bta:1:?",
+            "m": "Address"
+          }
+        ]
+      },
+      "o": {
+        "v": [
+          {
+            "n": "%bt_address",
+            "d": "Address"
+          },
+          {
+            "n": "%bt_alias",
+            "d": "Alias"
+          },
+          {
+            "n": "%bt_battery_level",
+            "d": "Battery Level"
+          },
+          {
+            "n": "%bt_paired",
+            "d": "Paired"
+          },
+          {
+            "n": "%bt_class",
+            "d": "Class"
+          },
+          {
+            "n": "%bt_class_name",
+            "d": "Class Name"
+          },
+          {
+            "n": "%bt_connected",
+            "d": "Connected"
+          },
+          {
+            "n": "%bt_encrypted",
+            "d": "Encrypted"
+          },
+          {
+            "n": "%bt_major_class",
+            "d": "Major Class"
+          },
+          {
+            "n": "%bt_major_class_name",
+            "d": "Major Class Name"
+          },
+          {
+            "n": "%bt_name",
+            "d": "Name"
+          },
+          {
+            "n": "%bt_signal_strength",
+            "d": "Signal Strength"
+          },
+          {
+            "n": "%bt_type",
+            "d": "Type"
+          }
+        ]
+      }
+    },
+    {
+      "c": 2081,
+      "n": "Music Track Changed",
+      "p": {
+        "p": [
+          {
+            "a": "Bundle",
+            "u": 0,
+            "s": "",
+            "m": "Output Variables"
+          },
+          {
+            "a": "Str",
+            "u": 1,
+            "s": "t:1:?",
+            "m": "Track"
+          },
+          {
+            "a": "Str",
+            "u": 2,
+            "s": "t:1:?",
+            "m": "Album"
+          },
+          {
+            "a": "Str",
+            "u": 3,
+            "s": "t:1:?",
+            "m": "Artist"
+          },
+          {
+            "a": "Str",
+            "u": 4,
+            "s": "apppakc",
+            "m": "Package"
+          },
+          {
+            "a": "Int",
+            "u": 5,
+            "s": "",
+            "m": "Type"
+          }
+        ]
+      },
+      "o": {
+        "v": [
+          {
+            "n": "%mt_album",
+            "d": "Album"
+          },
+          {
+            "n": "%mt_all_metadata",
+            "d": "All Metadata"
+          },
+          {
+            "n": "%mt_all_metadata_keys()",
+            "d": "All Metadata"
+          },
+          {
+            "n": "%mt_app",
+            "d": "App"
+          },
+          {
+            "n": "%mt_art",
+            "d": "Art"
+          },
+          {
+            "n": "%mt_artist",
+            "d": "Artist"
+          },
+          {
+            "n": "%mt_duration",
+            "d": "Duration"
+          },
+          {
+            "n": "%mt_duration_formatted",
+            "d": "Duration"
+          },
+          {
+            "n": "%mt_genre",
+            "d": "Genre"
+          },
+          {
+            "n": "%mt_number_tracks",
+            "d": "Number Of Tracks"
+          },
+          {
+            "n": "%mt_queue_icons()",
+            "d": "Queue Icons"
+          },
+          {
+            "n": "%mt_queue_titles()",
+            "d": "Queue Titles"
+          },
+          {
+            "n": "%mt_rating",
+            "d": "Rating"
+          },
+          {
+            "n": "%mt_state",
+            "d": "State"
+          },
+          {
+            "n": "%mt_track",
+            "d": "Track Name"
+          },
+          {
+            "n": "%mt_track_number",
+            "d": "Track Number"
+          },
+          {
+            "n": "%mt_year",
+            "d": "Year"
+          },
+          {
+            "n": "%mt_playing",
+            "d": "Playing"
+          }
+        ]
+      }
+    },
+    {
+      "c": 2083,
+      "n": "Significant Motion",
+      "p": {
+        "p": []
+      }
+    },
+    {
+      "c": 2084,
+      "n": "Alarm Changed",
+      "p": {
+        "p": [
+          {
+            "a": "Bundle",
+            "u": 0,
+            "s": "",
+            "m": "Output Variables"
+          },
+          {
+            "a": "Str",
+            "u": 1,
+            "s": "apppakc",
+            "m": "Package"
+          }
+        ]
+      },
+      "o": {
+        "v": [
+          {
+            "n": "%na_day",
+            "d": "Day"
+          },
+          {
+            "n": "%na_month",
+            "d": "Month"
+          },
+          {
+            "n": "%na_package",
+            "d": "Package"
+          },
+          {
+            "n": "%na_time",
+            "d": "Time"
+          },
+          {
+            "n": "%na_time_to_alarm_days",
+            "d": "Days To Alarm"
+          },
+          {
+            "n": "%na_time_to_alarm_hours",
+            "d": "Hours To Alarm"
+          },
+          {
+            "n": "%na_time_to_alarm_minutes",
+            "d": "Minutes To Alarm"
+          },
+          {
+            "n": "%na_time_to_alarm_seconds",
+            "d": "Seconds To Alarm"
+          },
+          {
+            "n": "%na_time_ms",
+            "d": "Time MilliSeconds"
+          },
+          {
+            "n": "%na_year",
+            "d": "Year"
+          }
+        ]
+      }
+    },
+    {
+      "c": 2085,
+      "n": "Logcat Entry",
+      "p": {
+        "p": [
+          {
+            "a": "Bundle",
+            "u": 0,
+            "s": "",
+            "m": "Output Variables"
+          },
+          {
+            "a": "Str",
+            "u": 1,
+            "s": "t:1",
+            "m": "Component"
+          },
+          {
+            "a": "Str",
+            "u": 2,
+            "s": "t:8:?",
+            "m": "Filter"
+          },
+          {
+            "a": "Int",
+            "u": 3,
+            "s": "",
+            "m": "Grep Filter (Check Help)"
+          }
+        ]
+      },
+      "d": "If the user wants to find a logcat on their device, the configuration screen of this event has a helper (magnifying glass icon) to help them out. In this situation the user should:- start the helper\n- do the action they want to monitor\n- stop the helper\n- pick the logcat entry from a list dialog",
+      "o": {
+        "v": [
+          {
+            "n": "%lc_text",
+            "d": "Text"
+          }
+        ]
+      }
+    },
+    {
+      "c": 2088,
+      "n": "Any Sensor",
+      "p": {
+        "p": [
+          {
+            "a": "Bundle",
+            "u": 0,
+            "s": "",
+            "m": "Output Variables"
+          },
+          {
+            "a": "Str",
+            "u": 1,
+            "s": "t:1",
+            "m": "Type"
+          },
+          {
+            "a": "Int",
+            "u": 2,
+            "s": "100:15000:1000",
+            "m": "Interval (ms)"
+          },
+          {
+            "a": "Int",
+            "u": 3,
+            "s": "",
+            "m": "Interval Type (Check Help)"
+          },
+          {
+            "a": "Int",
+            "u": 4,
+            "s": "",
+            "m": "Convert Orientation"
+          }
+        ]
+      },
+      "o": {
+        "v": [
+          {
+            "n": "%as_accuracy",
+            "d": "Accuracy"
+          },
+          {
+            "n": "%as_values()",
+            "d": "Values"
+          },
+          {
+            "n": "%as_sensor_type",
+            "d": "Sensor Type"
+          }
+        ]
+      }
+    },
+    {
+      "c": 2089,
+      "n": "HTTP Request",
+      "p": {
+        "p": [
+          {
+            "a": "Bundle",
+            "u": 0,
+            "s": "",
+            "m": "Output Variables"
+          },
+          {
+            "a": "Int",
+            "u": 1,
+            "s": "1025:9999:1821",
+            "m": "Port"
+          },
+          {
+            "a": "Str",
+            "u": 2,
+            "s": "t:1:?",
+            "m": "Method"
+          },
+          {
+            "a": "Str",
+            "u": 3,
+            "s": "t:1:?",
+            "m": "Path"
+          },
+          {
+            "a": "Str",
+            "u": 4,
+            "s": "t:1:?",
+            "m": "Quick Response"
+          },
+          {
+            "a": "Int",
+            "u": 5,
+            "s": "1:9999:10",
+            "m": "Timeout (Seconds)"
+          },
+          {
+            "a": "Int",
+            "u": 6,
+            "s": "true",
+            "m": "Only On Wifi"
+          },
+          {
+            "a": "Str",
+            "u": 7,
+            "s": "t:1:?",
+            "m": "Network Name/MAC Address"
+          }
+        ]
+      },
+      "o": {
+        "v": [
+          {
+            "n": "%http_request_body",
+            "d": "Body"
+          },
+          {
+            "n": "%http_request_files()",
+            "d": "Files"
+          },
+          {
+            "n": "%http_request_headers()",
+            "d": "Headers"
+          },
+          {
+            "n": "%http_request_ip_address_v4",
+            "d": "IP Address v4"
+          },
+          {
+            "n": "%http_request_method",
+            "d": "Method"
+          },
+          {
+            "n": "%http_request_multipart_names()",
+            "d": "Multipart Names"
+          },
+          {
+            "n": "%http_request_multipart_types()",
+            "d": "Multipart Types"
+          },
+          {
+            "n": "%http_request_multipart_values()",
+            "d": "Multipart Values"
+          },
+          {
+            "n": "%http_request_path",
+            "d": "Path"
+          },
+          {
+            "n": "%http_request_port",
+            "d": "Port"
+          },
+          {
+            "n": "%http_request_id",
+            "d": "Request ID"
+          }
+        ]
+      }
+    },
+    {
+      "c": 2091,
+      "n": "Command",
+      "p": {
+        "p": [
+          {
+            "a": "Bundle",
+            "u": 0,
+            "s": "",
+            "m": "Output Variables"
+          },
+          {
+            "a": "Str",
+            "u": 1,
+            "s": "t:1:?",
+            "m": "Command"
+          },
+          {
+            "a": "Str",
+            "u": 2,
+            "s": "t:1:?",
+            "m": "Variables"
+          },
+          {
+            "a": "Int",
+            "u": 3,
+            "s": "",
+            "m": "Last Variable Is Array"
+          },
+          {
+            "a": "Int",
+            "u": 4,
+            "s": "bosta",
+            "m": "Structure Output (JSON, etc)"
+          }
+        ]
+      },
+      "o": {
+        "v": [
+          {
+            "n": "%command_parameter",
+            "d": "Command Parameter"
+          },
+          {
+            "n": "%command_parameters()",
+            "d": "Command Parameters"
+          },
+          {
+            "n": "%command_prefix",
+            "d": "Prefix"
+          },
+          {
+            "n": "%command_text",
+            "d": "The full command"
+          }
+        ]
+      }
+    },
+    {
+      "c": 2092,
+      "n": "Device Control Shown",
+      "p": {
+        "p": [
+          {
+            "a": "Bundle",
+            "u": 0,
+            "s": "",
+            "m": "Output Variables"
+          }
+        ]
+      },
+      "o": {
+        "v": [
+          {
+            "n": "%pms_add_controls",
+            "d": "Add Controls"
+          }
+        ]
+      }
+    },
+    {
+      "c": 2093,
+      "n": "Assistant Action",
+      "p": {
+        "p": [
+          {
+            "a": "Bundle",
+            "u": 0,
+            "s": "",
+            "m": "Output Variables"
+          },
+          {
+            "a": "Str",
+            "u": 1,
+            "s": "t",
+            "m": "Command"
+          }
+        ]
+      },
+      "o": {
+        "v": [
+          {
+            "n": "%aa_command",
+            "d": "The full command"
+          }
+        ]
+      }
+    },
+    {
+      "c": 2094,
+      "n": "Call Screened",
+      "p": {
+        "p": [
+          {
+            "a": "Bundle",
+            "u": 0,
+            "s": "",
+            "m": "Output Variables"
+          },
+          {
+            "a": "Str",
+            "u": 1,
+            "s": "p",
+            "m": "Caller"
+          }
+        ]
+      },
+      "o": {
+        "v": [
+          {
+            "n": "%cs_capabilities",
+            "d": "Capabilities"
+          },
+          {
+            "n": "%cs_incoming",
+            "d": "Incoming"
+          },
+          {
+            "n": "%cs_name",
+            "d": "Contact Name"
+          },
+          {
+            "n": "%cs_number",
+            "d": "Phone Number"
+          },
+          {
+            "n": "%cs_properties",
+            "d": "Properties"
+          }
+        ]
+      }
+    },
+    {
+      "c": 2095,
+      "n": "Tick",
+      "p": {
+        "p": [
+          {
+            "a": "Bundle",
+            "u": 0,
+            "s": "",
+            "m": "Output Variables"
+          },
+          {
+            "a": "Str",
+            "u": 1,
+            "s": "t:1",
+            "m": "Interval (ms)"
+          }
+        ]
+      }
+    },
+    {
+      "c": 2096,
+      "n": "Sleeping",
+      "p": {
+        "p": [
+          {
+            "a": "Bundle",
+            "u": 0,
+            "s": "",
+            "m": "Output Variables"
+          },
+          {
+            "a": "Int",
+            "u": 1,
+            "s": "0:100:85",
+            "m": "Minimum Confidence"
+          },
+          {
+            "a": "Int",
+            "u": 2,
+            "s": "1:6:2",
+            "m": "Maximum Light"
+          },
+          {
+            "a": "Int",
+            "u": 3,
+            "s": "1:6:2",
+            "m": "Maximum Motion"
+          }
+        ]
+      },
+      "o": {
+        "v": [
+          {
+            "n": "%sl_confidence",
+            "d": "Confidence"
+          },
+          {
+            "n": "%sl_light",
+            "d": "Light"
+          },
+          {
+            "n": "%sl_motion",
+            "d": "Motion"
+          }
+        ]
+      }
+    },
+    {
+      "c": 2097,
+      "n": "Clipboard Changed",
+      "p": {
+        "p": [
+          {
+            "a": "Bundle",
+            "u": 0,
+            "s": "",
+            "m": "Output Variables"
+          },
+          {
+            "a": "Int",
+            "u": 1,
+            "s": "true",
+            "m": "Ignore Set By Tasker"
+          }
+        ]
+      },
+      "o": {
+        "v": [
+          {
+            "n": "%cl_extras",
+            "d": "Extras"
+          },
+          {
+            "n": "%cl_html_text",
+            "d": "HTML Text"
+          },
+          {
+            "n": "%cl_image_uri",
+            "d": "Image URI"
+          },
+          {
+            "n": "%cl_mimetypes()",
+            "d": "Mime Type"
+          },
+          {
+            "n": "%cl_text",
+            "d": "Text"
+          },
+          {
+            "n": "%cl_uri",
+            "d": "URI"
+          }
+        ]
+      }
+    },
+    {
+      "c": 2098,
+      "n": "Accessibility Services Changed",
+      "p": {
+        "p": [
+          {
+            "a": "Bundle",
+            "u": 0,
+            "s": "",
+            "m": "Output Variables"
+          }
+        ]
+      },
+      "o": {
+        "v": [
+          {
+            "n": "%asc_running_services()",
+            "d": "Running Accessibility Services"
+          },
+          {
+            "n": "%asc_running_services_app_names()",
+            "d": "Running Accessibility Services App Names"
+          },
+          {
+            "n": "%asc_running_services_service_names()",
+            "d": "Running Accessibility Services Names"
+          }
+        ]
+      }
+    },
+    {
+      "c": 2099,
+      "n": "Device Unlock Failed",
+      "p": {
+        "p": [
+          {
+            "a": "Bundle",
+            "u": 0,
+            "s": "",
+            "m": "Output Variables"
+          }
+        ]
+      },
+      "o": {
+        "v": [
+          {
+            "n": "%uf_failed_attempts",
+            "d": "Failed Password Attempts"
+          }
+        ]
+      }
+    },
+    {
+      "c": 2100,
+      "n": "Remote Action Token Changed",
+      "p": {
+        "p": [
+          {
+            "a": "Bundle",
+            "u": 0,
+            "s": "",
+            "m": "Output Variables"
+          }
+        ]
+      },
+      "o": {
+        "v": [
+          {
+            "n": "%rae_bearer_token",
+            "d": "Bearer Token"
+          },
+          {
+            "n": "%rae_fcm_token",
+            "d": "FCM Token"
+          },
+          {
+            "n": "%rae_remote_device_name()",
+            "d": "Remote Device Names"
+          },
+          {
+            "n": "%rae_remote_device_token()",
+            "d": "Remote Device Names"
+          }
+        ]
+      }
+    },
+    {
+      "c": 2101,
+      "n": "Received Share",
+      "p": {
+        "p": [
+          {
+            "a": "Bundle",
+            "u": 0,
+            "s": "",
+            "m": "Output Variables"
+          },
+          {
+            "a": "Str",
+            "u": 1,
+            "s": "apppakc",
+            "m": "Package Name"
+          },
+          {
+            "a": "Str",
+            "u": 2,
+            "s": "t:1:?",
+            "m": "Share Trigger"
+          },
+          {
+            "a": "Str",
+            "u": 3,
+            "s": "t:1:?",
+            "m": "Subject"
+          },
+          {
+            "a": "Str",
+            "u": 4,
+            "s": "t:1:?",
+            "m": "Text"
+          },
+          {
+            "a": "Str",
+            "u": 5,
+            "s": "t:1:?",
+            "m": "Files"
+          },
+          {
+            "a": "Str",
+            "u": 6,
+            "s": "t:1:?",
+            "m": "Mime Type"
+          },
+          {
+            "a": "Str",
+            "u": 7,
+            "s": "t:1:?",
+            "m": "Action"
+          },
+          {
+            "a": "Str",
+            "u": 8,
+            "s": "t:1:?",
+            "m": "Categories"
+          }
+        ]
+      },
+      "o": {
+        "v": [
+          {
+            "n": "%rs_action",
+            "d": "Action"
+          },
+          {
+            "n": "%rs_all_extras",
+            "d": "All Extras JSON"
+          },
+          {
+            "n": "%rs_app_name",
+            "d": "App Name"
+          },
+          {
+            "n": "%rs_categories()",
+            "d": "Categories"
+          },
+          {
+            "n": "%rs_files()",
+            "d": "Files"
+          },
+          {
+            "n": "%rs_flags",
+            "d": "Flags"
+          },
+          {
+            "n": "%rs_identifier",
+            "d": "Identifier"
+          },
+          {
+            "n": "%rs_mime_type",
+            "d": "Mime Type"
+          },
+          {
+            "n": "%rs_package_name",
+            "d": "Package Name"
+          },
+          {
+            "n": "%rs_share_trigger",
+            "d": "Share Trigger"
+          },
+          {
+            "n": "%rs_subject",
+            "d": "Subject"
+          },
+          {
+            "n": "%rs_text",
+            "d": "Text"
+          },
+          {
+            "n": "%rs_title",
+            "d": "Title"
+          }
+        ]
+      }
+    },
+    {
+      "c": 2102,
+      "n": "Calendar Changed",
+      "p": {
+        "p": [
+          {
+            "a": "Bundle",
+            "u": 0,
+            "s": "",
+            "m": "Output Variables"
+          },
+          {
+            "a": "Int",
+            "u": 1,
+            "s": "",
+            "m": "Added"
+          },
+          {
+            "a": "Int",
+            "u": 2,
+            "s": "",
+            "m": "Updated"
+          },
+          {
+            "a": "Int",
+            "u": 3,
+            "s": "",
+            "m": "Deleted"
+          },
+          {
+            "a": "Int",
+            "u": 4,
+            "s": "",
+            "m": "Other"
+          }
+        ]
+      },
+      "o": {
+        "v": [
+          {
+            "n": "%cc_event_ids_added()",
+            "d": "Event Ids Added"
+          },
+          {
+            "n": "%cc_event_ids_deleted()",
+            "d": "Event Ids Deleted"
+          },
+          {
+            "n": "%cc_event_ids_updated()",
+            "d": "Event Ids Updated"
+          }
+        ]
+      }
+    },
+    {
+      "c": 2103,
+      "n": "Extra Trigger",
+      "p": {
+        "p": [
+          {
+            "a": "Bundle",
+            "u": 0,
+            "s": "",
+            "m": "Output Variables"
+          }
+        ]
+      },
+      "o": {
+        "v": [
+          {
+            "n": "%sa_extras",
+            "d": "Extras"
+          },
+          {
+            "n": "%sa_referrer",
+            "d": "Referrer"
+          },
+          {
+            "n": "%sa_trigger_id",
+            "d": "Trigger ID"
+          },
+          {
+            "n": "%sa_trigger_package_name",
+            "d": "Trigger Package Name"
+          }
+        ]
+      }
+    },
+    {
+      "c": 2104,
+      "n": "Scene V2",
+      "p": {
+        "p": [
+          {
+            "a": "Bundle",
+            "u": 0,
+            "s": "",
+            "m": "Output Variables"
+          },
+          {
+            "a": "Str",
+            "u": 1,
+            "s": "t:1:?",
+            "m": "Scene Name"
+          },
+          {
+            "a": "Str",
+            "u": 2,
+            "s": "t:1:?",
+            "m": "Element ID"
+          },
+          {
+            "a": "Str",
+            "u": 3,
+            "s": "t:1:?",
+            "m": "Interaction Type"
+          }
+        ]
+      },
+      "o": {
+        "v": [
+          {
+            "n": "%sv2_element_id",
+            "d": "01. Element ID"
+          },
+          {
+            "n": "%sv2_element_path",
+            "d": "04. Element Path"
+          },
+          {
+            "n": "%sv2_interaction_type",
+            "d": "05. Interaction Type"
+          },
+          {
+            "n": "%sv2_scene_name",
+            "d": "02. Scene Name"
+          },
+          {
+            "n": "%sv2_screen_id",
+            "d": "03. Screen Id"
+          },
+          {
+            "n": "%sv2_element_id",
+            "d": "01. Element ID"
+          },
+          {
+            "n": "%sv2_element_value",
+            "d": "02. Element Value"
+          }
+        ]
+      }
+    },
+    {
+      "c": 2105,
+      "n": "Wifi Changed",
+      "p": {
+        "p": [
+          {
+            "a": "Bundle",
+            "u": 0,
+            "s": "",
+            "m": "Output Variables"
+          },
+          {
+            "a": "Int",
+            "u": 1,
+            "s": "",
+            "m": "Get SSID"
+          },
+          {
+            "a": "Str",
+            "u": 2,
+            "s": "",
+            "m": "SSID"
+          },
+          {
+            "a": "Str",
+            "u": 3,
+            "s": "",
+            "m": "MAC"
+          },
+          {
+            "a": "Str",
+            "u": 4,
+            "s": "",
+            "m": "State"
+          }
+        ]
+      },
+      "o": {
+        "v": [
+          {
+            "n": "%wf_state",
+            "d": "Wifi State"
+          }
+        ]
+      }
+    },
+    {
+      "c": 2077,
+      "n": "Secondary App Opened",
+      "p": {
+        "p": [
+          {
+            "a": "Bundle",
+            "u": 0,
+            "s": "",
+            "m": "Output Variables"
+          }
+        ]
+      },
+      "o": {
+        "v": [
+          {
+            "n": "%sa_action",
+            "d": "Action"
+          },
+          {
+            "n": "%sa_category",
+            "d": "Category"
+          },
+          {
+            "n": "%sa_extras",
+            "d": "Extras"
+          }
+        ]
+      }
+    },
+    {
+      "c": 2078,
+      "n": "App Changed",
+      "p": {
+        "p": [
+          {
+            "a": "Bundle",
+            "u": 0,
+            "s": "",
+            "m": "Output Variables"
+          },
+          {
+            "a": "Str",
+            "u": 1,
+            "s": "apppakc",
+            "m": "Package"
+          }
+        ]
+      },
+      "o": {
+        "v": [
+          {
+            "n": "%app_icon",
+            "d": "Icon"
+          },
+          {
+            "n": "%app_name",
+            "d": "Name"
+          },
+          {
+            "n": "%app_package",
+            "d": "Package"
+          }
+        ]
+      }
+    },
+    {
+      "c": 203,
+      "n": "Battery Changed",
+      "p": {
+        "p": []
+      }
+    },
+    {
+      "c": 205,
+      "n": "Battery Full",
+      "p": {
+        "p": []
+      }
+    },
+    {
+      "c": 206,
+      "n": "Battery Overheating",
+      "p": {
+        "p": []
+      }
+    },
+    {
+      "c": 305,
+      "n": "Alarm Clock",
+      "p": {
+        "p": [
+          {
+            "a": "Str",
+            "u": 0,
+            "s": "t",
+            "m": "Label"
+          }
+        ]
+      }
+    },
+    {
+      "c": 306,
+      "n": "Alarm Done",
+      "p": {
+        "p": []
+      }
+    },
+    {
+      "c": 300,
+      "n": "Date Set",
+      "p": {
+        "p": []
+      }
+    },
+    {
+      "c": 302,
+      "n": "Time/Date Set",
+      "p": {
+        "p": []
+      }
+    },
+    {
+      "c": 304,
+      "n": "Timezone Set",
+      "p": {
+        "p": []
+      }
+    },
+    {
+      "c": 210,
+      "n": "Display Off",
+      "p": {
+        "p": []
+      }
+    },
+    {
+      "c": 208,
+      "n": "Display On",
+      "p": {
+        "p": []
+      }
+    },
+    {
+      "c": 1000,
+      "n": "Display Unlocked",
+      "p": {
+        "p": []
+      }
+    },
+    {
+      "c": 230,
+      "n": "File Attribute Change",
+      "p": {
+        "p": [
+          {
+            "a": "Str",
+            "u": 0,
+            "s": "f",
+            "m": "File"
+          }
+        ]
+      }
+    },
+    {
+      "c": 224,
+      "n": "File Closed",
+      "p": {
+        "p": [
+          {
+            "a": "Str",
+            "u": 0,
+            "s": "f",
+            "m": "File"
+          }
+        ]
+      }
+    },
+    {
+      "c": 228,
+      "n": "File Deleted",
+      "p": {
+        "p": [
+          {
+            "a": "Str",
+            "u": 0,
+            "s": "f",
+            "m": "File"
+          }
+        ]
+      }
+    },
+    {
+      "c": 222,
+      "n": "File Modified",
+      "p": {
+        "p": [
+          {
+            "a": "Str",
+            "u": 0,
+            "s": "f",
+            "m": "File"
+          },
+          {
+            "a": "Str",
+            "u": 1,
+            "s": "fme",
+            "m": "Event"
+          }
+        ]
+      }
+    },
+    {
+      "c": 220,
+      "n": "File Moved",
+      "p": {
+        "p": [
+          {
+            "a": "Str",
+            "u": 0,
+            "s": "f",
+            "m": "File"
+          }
+        ]
+      }
+    },
+    {
+      "c": 226,
+      "n": "File Opened",
+      "p": {
+        "p": [
+          {
+            "a": "Str",
+            "u": 0,
+            "s": "f",
+            "m": "File"
+          }
+        ]
+      }
+    },
+    {
+      "c": 3000,
+      "n": "Gesture",
+      "p": {
+        "p": [
+          {
+            "a": "Str",
+            "u": 0,
+            "s": "",
+            "m": "Name"
+          },
+          {
+            "a": "Str",
+            "u": 1,
+            "s": "acc",
+            "m": "Pattern"
+          }
+        ]
+      }
+    },
+    {
+      "c": 3001,
+      "n": "Shake",
+      "p": {
+        "p": [
+          {
+            "a": "Int",
+            "u": 0,
+            "s": "",
+            "m": "Axis"
+          },
+          {
+            "a": "Int",
+            "u": 1,
+            "s": "",
+            "m": "Sensitivity"
+          },
+          {
+            "a": "Int",
+            "u": 2,
+            "s": "",
+            "m": "Duration"
+          }
+        ]
+      }
+    },
+    {
+      "c": 309,
+      "n": "Steps Taken",
+      "p": {
+        "p": [
+          {
+            "a": "Int",
+            "u": 0,
+            "s": "1:999999:1",
+            "m": "Number"
+          }
+        ]
+      }
+    },
+    {
+      "c": 2003,
+      "n": "Missed Call",
+      "p": {
+        "p": [
+          {
+            "a": "Str",
+            "u": 0,
+            "s": "p",
+            "m": "Caller"
+          }
+        ]
+      }
+    },
+    {
+      "c": 4,
+      "n": "Phone Idle",
+      "p": {
+        "p": []
+      }
+    },
+    {
+      "c": 2,
+      "n": "Phone Offhook",
+      "p": {
+        "p": []
+      }
+    },
+    {
+      "c": 6,
+      "n": "Phone Ringing",
+      "p": {
+        "p": [
+          {
+            "a": "Str",
+            "u": 0,
+            "s": "p",
+            "m": "Caller"
+          }
+        ]
+      }
+    },
+    {
+      "c": 8,
+      "n": "Received Data SMS",
+      "p": {
+        "p": [
+          {
+            "a": "Str",
+            "u": 0,
+            "s": "sms",
+            "m": "Sender"
+          },
+          {
+            "a": "Int",
+            "u": 1,
+            "s": "0:65535:?",
+            "m": "Port"
+          },
+          {
+            "a": "Str",
+            "u": 2,
+            "s": "t:3",
+            "m": "Data"
+          }
+        ]
+      }
+    },
+    {
+      "c": 7,
+      "n": "Received Text",
+      "p": {
+        "p": [
+          {
+            "a": "Int",
+            "u": 0,
+            "s": "",
+            "m": "Type"
+          },
+          {
+            "a": "Str",
+            "u": 1,
+            "s": "sms",
+            "m": "Sender"
+          },
+          {
+            "a": "Str",
+            "u": 2,
+            "s": "t",
+            "m": "Content"
+          },
+          {
+            "a": "Str",
+            "u": 3,
+            "s": "simc:1:?",
+            "m": "SIM Card"
+          },
+          {
+            "a": "Str",
+            "u": 4,
+            "s": "t",
+            "m": "MMS Body"
+          }
+        ]
+      }
+    },
+    {
+      "c": 2010,
+      "n": "SMS Failure",
+      "p": {
+        "p": [
+          {
+            "a": "Str",
+            "u": 0,
+            "s": "sms",
+            "m": "Recipient"
+          }
+        ]
+      }
+    },
+    {
+      "c": 2005,
+      "n": "SMS Success",
+      "p": {
+        "p": [
+          {
+            "a": "Str",
+            "u": 0,
+            "s": "sms",
+            "m": "Recipient"
+          }
+        ]
+      }
+    },
+    {
+      "c": 215,
+      "n": "Button: Camera",
+      "p": {
+        "p": []
+      }
+    },
+    {
+      "c": 216,
+      "n": "Button: Long Search",
+      "p": {
+        "p": []
+      }
+    },
+    {
+      "c": 134,
+      "n": "Card Mounted",
+      "p": {
+        "p": [
+          {
+            "a": "Str",
+            "u": 0,
+            "s": "t",
+            "m": "Card Title"
+          },
+          {
+            "a": "Int",
+            "u": 1,
+            "s": "",
+            "m": "Frequency"
+          }
+        ]
+      }
+    },
+    {
+      "c": 136,
+      "n": "Card Removed",
+      "p": {
+        "p": []
+      }
+    },
+    {
+      "c": 135,
+      "n": "Card Unmounted",
+      "p": {
+        "p": []
+      }
+    },
+    {
+      "c": 599,
+      "n": "Intent Received",
+      "p": {
+        "p": [
+          {
+            "a": "Str",
+            "u": 0,
+            "s": "t:1:?",
+            "m": "Action"
+          },
+          {
+            "a": "Int",
+            "u": 1,
+            "s": "",
+            "m": "Cat"
+          },
+          {
+            "a": "Int",
+            "u": 2,
+            "s": "",
+            "m": "Cat"
+          },
+          {
+            "a": "Str",
+            "u": 3,
+            "s": "t:1:?",
+            "m": "Scheme"
+          },
+          {
+            "a": "Str",
+            "u": 4,
+            "s": "mime:1:?",
+            "m": "Mime Type"
+          }
+        ]
+      }
+    },
+    {
+      "c": 411,
+      "n": "Device Boot",
+      "p": {
+        "p": []
+      }
+    },
+    {
+      "c": 413,
+      "n": "Device Shutdown",
+      "p": {
+        "p": []
+      }
+    },
+    {
+      "c": 422,
+      "n": "Device Storage Low",
+      "p": {
+        "p": []
+      }
+    },
+    {
+      "c": 429,
+      "n": "Locale Changed",
+      "p": {
+        "p": []
+      }
+    },
+    {
+      "c": 450,
+      "n": "New Package",
+      "p": {
+        "p": [
+          {
+            "a": "Str",
+            "u": 0,
+            "s": "pkgLabel",
+            "m": "Name"
+          },
+          {
+            "a": "Str",
+            "u": 1,
+            "s": "pkgName",
+            "m": "Package"
+          }
+        ]
+      }
+    },
+    {
+      "c": 453,
+      "n": "Package Updated",
+      "p": {
+        "p": [
+          {
+            "a": "Str",
+            "u": 0,
+            "s": "pkgLabel",
+            "m": "Name"
+          },
+          {
+            "a": "Str",
+            "u": 1,
+            "s": "pkgName",
+            "m": "Package"
+          }
+        ]
+      }
+    },
+    {
+      "c": 451,
+      "n": "Package Removed",
+      "p": {
+        "p": [
+          {
+            "a": "Str",
+            "u": 0,
+            "s": "pkgName",
+            "m": "Package"
+          }
+        ]
+      }
+    },
+    {
+      "c": 307,
+      "n": "Monitor Start",
+      "p": {
+        "p": []
+      }
+    },
+    {
+      "c": 303,
+      "n": "Timer Change",
+      "p": {
+        "p": [
+          {
+            "a": "Str",
+            "u": 0,
+            "s": "m",
+            "m": "Task"
+          },
+          {
+            "a": "Int",
+            "u": 1,
+            "s": "",
+            "m": "Type"
+          }
+        ]
+      }
+    },
+    {
+      "c": 460,
+      "n": "Wallpaper Changed",
+      "p": {
+        "p": []
+      }
+    },
+    {
+      "c": 3060,
+      "n": "Variable Cleared",
+      "p": {
+        "p": [
+          {
+            "a": "Str",
+            "u": 0,
+            "s": "var",
+            "m": "Variable"
+          },
+          {
+            "a": "Int",
+            "u": 1,
+            "s": "",
+            "m": "User Variables Only"
+          }
+        ]
+      }
+    },
+    {
+      "c": 3050,
+      "n": "Variable Set",
+      "p": {
+        "p": [
+          {
+            "a": "Str",
+            "u": 0,
+            "s": "var",
+            "m": "Variable"
+          },
+          {
+            "a": "Str",
+            "u": 1,
+            "s": "inpval",
+            "m": "Value"
+          },
+          {
+            "a": "Int",
+            "u": 2,
+            "s": "",
+            "m": "User Variables Only"
+          }
+        ]
+      }
+    },
+    {
+      "c": 201,
+      "n": "Assistance Request",
+      "p": {
+        "p": [
+          {
+            "a": "App",
+            "u": 0,
+            "s": "",
+            "m": "App"
+          },
+          {
+            "a": "Str",
+            "u": 1,
+            "s": "t",
+            "m": "URL"
+          },
+          {
+            "a": "Str",
+            "u": 2,
+            "s": "t",
+            "m": "Texts"
+          },
+          {
+            "a": "Str",
+            "u": 3,
+            "s": "t",
+            "m": "Extras"
+          }
+        ]
+      }
+    },
+    {
+      "c": 3071,
+      "n": "Zoom Click",
+      "p": {
+        "p": [
+          {
+            "a": "Str",
+            "u": 0,
+            "s": "t",
+            "m": "Widget Name"
+          },
+          {
+            "a": "Str",
+            "u": 1,
+            "s": "t",
+            "m": "Element Name"
+          }
+        ]
+      }
+    },
+    {
+      "c": 463,
+      "n": "New Window",
+      "p": {
+        "p": [
+          {
+            "a": "Str",
+            "u": 0,
+            "s": "t",
+            "m": "Label"
+          },
+          {
+            "a": "Int",
+            "u": 1,
+            "s": "",
+            "m": "Window Type"
+          }
+        ]
+      }
+    },
+    {
+      "c": 461,
+      "n": "Notification",
+      "p": {
+        "p": [
+          {
+            "a": "App",
+            "u": 0,
+            "s": "",
+            "m": "Owner Application"
+          },
+          {
+            "a": "Str",
+            "u": 1,
+            "s": "t",
+            "m": "Title"
+          },
+          {
+            "a": "Str",
+            "u": 2,
+            "s": "t",
+            "m": "Text"
+          },
+          {
+            "a": "Str",
+            "u": 3,
+            "s": "t",
+            "m": "Subtext"
+          },
+          {
+            "a": "Str",
+            "u": 4,
+            "s": "t",
+            "m": "Messages"
+          },
+          {
+            "a": "Str",
+            "u": 5,
+            "s": "t",
+            "m": "Other Text"
+          },
+          {
+            "a": "Str",
+            "u": 6,
+            "s": "ncat",
+            "m": "Cat"
+          },
+          {
+            "a": "Int",
+            "u": 7,
+            "s": "true",
+            "m": "New Only"
+          }
+        ]
+      }
+    },
+    {
+      "c": 464,
+      "n": "Notification Removed",
+      "p": {
+        "p": [
+          {
+            "a": "App",
+            "u": 0,
+            "s": "",
+            "m": "Owner Application"
+          },
+          {
+            "a": "Str",
+            "u": 1,
+            "s": "t",
+            "m": "Title"
+          },
+          {
+            "a": "Str",
+            "u": 2,
+            "s": "t",
+            "m": "Text"
+          },
+          {
+            "a": "Str",
+            "u": 3,
+            "s": "t",
+            "m": "Subtext"
+          },
+          {
+            "a": "Str",
+            "u": 4,
+            "s": "t",
+            "m": "Other Text"
+          },
+          {
+            "a": "Str",
+            "u": 5,
+            "s": "ncat",
+            "m": "Cat"
+          }
+        ]
+      }
+    },
+    {
+      "c": 2000,
+      "n": "Notification Click",
+      "p": {
+        "p": [
+          {
+            "a": "App",
+            "u": 0,
+            "s": "",
+            "m": "Owner Application"
+          },
+          {
+            "a": "Str",
+            "u": 1,
+            "s": "t",
+            "m": "Title"
+          }
+        ]
+      }
+    },
+    {
+      "c": 2050,
+      "n": "Quick Setting Clicked",
+      "p": {
+        "p": [
+          {
+            "a": "Str",
+            "u": 0,
+            "s": "t",
+            "m": "Label"
+          }
+        ]
+      }
+    },
+    {
+      "c": 2075,
+      "n": "Custom Setting",
+      "p": {
+        "p": [
+          {
+            "a": "Int",
+            "u": 0,
+            "s": "",
+            "m": "Type"
+          },
+          {
+            "a": "Str",
+            "u": 1,
+            "s": "sset",
+            "m": "Name"
+          },
+          {
+            "a": "Str",
+            "u": 2,
+            "s": "t",
+            "m": "Value"
+          }
+        ]
+      }
+    },
+    {
+      "c": 2076,
+      "n": "NFC Tag",
+      "p": {
+        "p": [
+          {
+            "a": "Str",
+            "u": 0,
+            "s": "nfctid",
+            "m": "ID"
+          },
+          {
+            "a": "Str",
+            "u": 1,
+            "s": "nfctcont",
+            "m": "Content"
+          }
+        ]
+      }
+    },
+    {
+      "c": 2079,
+      "n": "Volume Long Press",
+      "p": {
+        "p": [
+          {
+            "a": "Int",
+            "u": 0,
+            "s": "",
+            "m": "Type"
+          },
+          {
+            "a": "Str",
+            "u": 1,
+            "s": "buttprsti",
+            "m": "Additional Time (Check Help)"
+          }
+        ]
+      }
+    },
+    {
+      "c": 425,
+      "n": "K9 Email Received",
+      "p": {
+        "p": [
+          {
+            "a": "Str",
+            "u": 0,
+            "s": "t",
+            "m": "From"
+          },
+          {
+            "a": "Str",
+            "u": 1,
+            "s": "t",
+            "m": "Subject"
+          },
+          {
+            "a": "Str",
+            "u": 2,
+            "s": "t",
+            "m": "Receiving Account"
+          }
+        ]
+      }
+    },
+    {
+      "c": 446,
+      "n": "Gentle Alarm",
+      "p": {
+        "p": [
+          {
+            "a": "Int",
+            "u": 0,
+            "s": "",
+            "m": "Event"
+          },
+          {
+            "a": "Str",
+            "u": 1,
+            "s": "t",
+            "m": "Name"
+          },
+          {
+            "a": "Str",
+            "u": 2,
+            "s": "t",
+            "m": "Message"
+          },
+          {
+            "a": "Str",
+            "u": 3,
+            "s": "t",
+            "m": "Profile"
+          },
+          {
+            "a": "Int",
+            "u": 4,
+            "s": "",
+            "m": "Type"
+          }
+        ]
+      }
+    },
+    {
+      "c": 428,
+      "n": "Kaloer Clock",
+      "p": {
+        "p": [
+          {
+            "a": "Int",
+            "u": 0,
+            "s": "",
+            "m": "Event"
+          },
+          {
+            "a": "Str",
+            "u": 1,
+            "s": "t",
+            "m": "Name"
+          }
+        ]
+      }
+    },
+    {
+      "c": 448,
+      "n": "Notify My Android",
+      "p": {
+        "p": [
+          {
+            "a": "Str",
+            "u": 0,
+            "s": "t",
+            "m": "App"
+          },
+          {
+            "a": "Str",
+            "u": 1,
+            "s": "t",
+            "m": "Event"
+          },
+          {
+            "a": "Str",
+            "u": 2,
+            "s": "t",
+            "m": "Description"
+          },
+          {
+            "a": "Str",
+            "u": 3,
+            "s": "t",
+            "m": "URL"
+          }
+        ]
+      }
+    },
+    {
+      "c": 444,
+      "n": "Pomodroido",
+      "p": {
+        "p": [
+          {
+            "a": "Int",
+            "u": 0,
+            "s": "",
+            "m": "Event"
+          }
+        ]
+      }
+    },
+    {
+      "c": 445,
+      "n": "Radardroid",
+      "p": {
+        "p": [
+          {
+            "a": "Int",
+            "u": 0,
+            "s": "",
+            "m": "Event"
+          }
+        ]
+      }
+    },
+    {
+      "c": 447,
+      "n": "Reddit Notify",
+      "p": {
+        "p": [
+          {
+            "a": "Int",
+            "u": 0,
+            "s": "",
+            "m": "Event"
+          },
+          {
+            "a": "Int",
+            "u": 1,
+            "s": "",
+            "m": "Number"
+          },
+          {
+            "a": "Str",
+            "u": 2,
+            "s": "t",
+            "m": "Message"
+          }
+        ]
+      }
+    },
+    {
+      "c": 424,
+      "n": "Screebl / TSC",
+      "p": {
+        "p": [
+          {
+            "a": "Int",
+            "u": 0,
+            "s": "",
+            "m": "Within Range"
+          }
+        ]
+      }
+    },
+    {
+      "c": 426,
+      "n": "Widget Locker",
+      "p": {
+        "p": [
+          {
+            "a": "Int",
+            "u": 0,
+            "s": "",
+            "m": "Event"
+          }
+        ]
+      }
+    },
+    {
+      "c": 427,
+      "n": "OpenWatch",
+      "p": {
+        "p": [
+          {
+            "a": "Int",
+            "u": 0,
+            "s": "",
+            "m": "Event"
+          }
+        ]
+      }
+    }
+  ]
+}

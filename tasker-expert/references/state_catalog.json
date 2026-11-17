@@ -1,0 +1,971 @@
+{
+  "c": [
+    {
+      "c": 154,
+      "n": "Active User",
+      "p": {
+        "p": [
+          {
+            "a": "Int",
+            "u": 0,
+            "s": "0:999999:?",
+            "m": "User ID"
+          }
+        ]
+      }
+    },
+    {
+      "c": 100,
+      "n": "Airplane Mode",
+      "p": {
+        "p": []
+      }
+    },
+    {
+      "c": 135,
+      "n": "Auto-Sync",
+      "p": {
+        "p": []
+      }
+    },
+    {
+      "c": 140,
+      "n": "Battery Level",
+      "p": {
+        "p": [
+          {
+            "a": "Int",
+            "u": 0,
+            "s": "0:100",
+            "m": "From"
+          },
+          {
+            "a": "Int",
+            "u": 1,
+            "s": "0:100",
+            "m": "To"
+          }
+        ]
+      }
+    },
+    {
+      "c": 141,
+      "n": "Battery Temperature",
+      "p": {
+        "p": [
+          {
+            "a": "Int",
+            "u": 0,
+            "s": "0:2000",
+            "m": "From"
+          },
+          {
+            "a": "Int",
+            "u": 1,
+            "s": "0:2000",
+            "m": "To"
+          }
+        ]
+      }
+    },
+    {
+      "c": 3,
+      "n": "BT Connected",
+      "p": {
+        "p": [
+          {
+            "a": "Str",
+            "u": 0,
+            "s": "btn:1:?",
+            "m": "Name"
+          },
+          {
+            "a": "Str",
+            "u": 1,
+            "s": "bta:1:?",
+            "m": "Address"
+          }
+        ]
+      }
+    },
+    {
+      "c": 2,
+      "n": "BT Status",
+      "p": {
+        "p": [
+          {
+            "a": "Int",
+            "u": 0,
+            "s": "",
+            "m": "Status"
+          }
+        ]
+      }
+    },
+    {
+      "c": 4,
+      "n": "BT Near",
+      "p": {
+        "p": [
+          {
+            "a": "Str",
+            "u": 0,
+            "s": "btn:1:?",
+            "m": "Name"
+          },
+          {
+            "a": "Str",
+            "u": 1,
+            "s": "bta:1:?",
+            "m": "Address"
+          },
+          {
+            "a": "Int",
+            "u": 2,
+            "s": "",
+            "m": "Major Device Class"
+          },
+          {
+            "a": "Int",
+            "u": 3,
+            "s": "",
+            "m": "Standard Devices"
+          },
+          {
+            "a": "Int",
+            "u": 4,
+            "s": "",
+            "m": "Low-Energy (LE) Devices"
+          },
+          {
+            "a": "Int",
+            "u": 5,
+            "s": "",
+            "m": "Unpaired Devices"
+          },
+          {
+            "a": "Int",
+            "u": 6,
+            "s": "",
+            "m": "Toggle BlueTooth"
+          }
+        ]
+      }
+    },
+    {
+      "c": 5,
+      "n": "Calendar Entry",
+      "p": {
+        "p": [
+          {
+            "a": "Str",
+            "u": 0,
+            "s": "ctit:1:?",
+            "m": "Title"
+          },
+          {
+            "a": "Str",
+            "u": 1,
+            "s": "cloc:1:?",
+            "m": "Location"
+          },
+          {
+            "a": "Str",
+            "u": 2,
+            "s": "t:1:?",
+            "m": "Description"
+          },
+          {
+            "a": "Int",
+            "u": 3,
+            "s": "",
+            "m": "Available"
+          },
+          {
+            "a": "Str",
+            "u": 4,
+            "s": "ccal:2:?",
+            "m": "Calendar"
+          },
+          {
+            "a": "Str",
+            "u": 5,
+            "s": "t:1:?",
+            "m": "Start Early (Minutes)"
+          },
+          {
+            "a": "Str",
+            "u": 6,
+            "s": "t:1:?",
+            "m": "End Later (Minutes)"
+          }
+        ]
+      }
+    },
+    {
+      "c": 40,
+      "n": "Call",
+      "p": {
+        "p": [
+          {
+            "a": "Int",
+            "u": 0,
+            "s": "",
+            "m": "Type"
+          },
+          {
+            "a": "Str",
+            "u": 1,
+            "s": "p:3:?",
+            "m": "Number"
+          }
+        ]
+      }
+    },
+    {
+      "c": 7,
+      "n": "Cell Near",
+      "p": {
+        "p": [
+          {
+            "a": "Str",
+            "u": 0,
+            "s": "t:8",
+            "m": "Cell Tower / Last Signal"
+          },
+          {
+            "a": "Str",
+            "u": 1,
+            "s": "t:4:?",
+            "m": "Ignore Cells"
+          }
+        ]
+      }
+    },
+    {
+      "c": 16,
+      "n": "Device Idle",
+      "p": {
+        "p": []
+      }
+    },
+    {
+      "c": 122,
+      "n": "Display Orientation",
+      "p": {
+        "p": [
+          {
+            "a": "Int",
+            "u": 0,
+            "s": "",
+            "m": "Is"
+          }
+        ]
+      }
+    },
+    {
+      "c": 123,
+      "n": "Display State",
+      "p": {
+        "p": [
+          {
+            "a": "Int",
+            "u": 0,
+            "s": "",
+            "m": "Is"
+          }
+        ]
+      }
+    },
+    {
+      "c": 80,
+      "n": "Docked",
+      "p": {
+        "p": [
+          {
+            "a": "Int",
+            "u": 0,
+            "s": "",
+            "m": "Type"
+          }
+        ]
+      }
+    },
+    {
+      "c": 175,
+      "n": "Dreaming",
+      "p": {
+        "p": []
+      }
+    },
+    {
+      "c": 161,
+      "n": "Ethernet Connect",
+      "p": {
+        "p": [
+          {
+            "a": "Int",
+            "u": 0,
+            "s": "",
+            "m": "Active"
+          }
+        ]
+      }
+    },
+    {
+      "c": 30,
+      "n": "Headset Plugged",
+      "p": {
+        "p": [
+          {
+            "a": "Int",
+            "u": 0,
+            "s": "",
+            "m": "Type"
+          }
+        ]
+      }
+    },
+    {
+      "c": 12,
+      "n": "HDMI Plugged",
+      "p": {
+        "p": []
+      }
+    },
+    {
+      "c": 50,
+      "n": "Keyboard Out",
+      "p": {
+        "p": []
+      }
+    },
+    {
+      "c": 182,
+      "n": "Heart Rate",
+      "p": {
+        "p": [
+          {
+            "a": "Int",
+            "u": 0,
+            "s": "0:20",
+            "m": "From"
+          },
+          {
+            "a": "Int",
+            "u": 1,
+            "s": "0:250",
+            "m": "To"
+          }
+        ]
+      }
+    },
+    {
+      "c": 185,
+      "n": "Humidity",
+      "p": {
+        "p": [
+          {
+            "a": "Int",
+            "u": 0,
+            "s": "0:100",
+            "m": "From"
+          },
+          {
+            "a": "Int",
+            "u": 1,
+            "s": "0:100",
+            "m": "To"
+          }
+        ]
+      }
+    },
+    {
+      "c": 103,
+      "n": "Light Level",
+      "p": {
+        "p": [
+          {
+            "a": "Int",
+            "u": 0,
+            "s": "0:100",
+            "m": "From"
+          },
+          {
+            "a": "Int",
+            "u": 1,
+            "s": "0:100",
+            "m": "To"
+          }
+        ]
+      }
+    },
+    {
+      "c": 106,
+      "n": "Magnetic Field",
+      "p": {
+        "p": [
+          {
+            "a": "Int",
+            "u": 0,
+            "s": "",
+            "m": "Axis"
+          },
+          {
+            "a": "Int",
+            "u": 1,
+            "s": "0:1000",
+            "m": "From"
+          },
+          {
+            "a": "Int",
+            "u": 2,
+            "s": "0:1000",
+            "m": "To"
+          }
+        ]
+      }
+    },
+    {
+      "c": 105,
+      "n": "Media Button",
+      "p": {
+        "p": [
+          {
+            "a": "Int",
+            "u": 0,
+            "s": "",
+            "m": "Button"
+          },
+          {
+            "a": "Int",
+            "u": 1,
+            "s": "",
+            "m": "Held Down"
+          },
+          {
+            "a": "Int",
+            "u": 2,
+            "s": "",
+            "m": "Grab"
+          },
+          {
+            "a": "Int",
+            "u": 3,
+            "s": "",
+            "m": "Stop Event"
+          }
+        ]
+      }
+    },
+    {
+      "c": 107,
+      "n": "Missed Call",
+      "p": {
+        "p": [
+          {
+            "a": "Str",
+            "u": 0,
+            "s": "p:3:?",
+            "m": "Caller"
+          }
+        ]
+      }
+    },
+    {
+      "c": 110,
+      "n": "Mobile Network",
+      "p": {
+        "p": [
+          {
+            "a": "Int",
+            "u": 0,
+            "s": "",
+            "m": "2G"
+          },
+          {
+            "a": "Int",
+            "u": 1,
+            "s": "",
+            "m": "3G"
+          },
+          {
+            "a": "Int",
+            "u": 2,
+            "s": "",
+            "m": "3G - HSPA"
+          },
+          {
+            "a": "Int",
+            "u": 3,
+            "s": "",
+            "m": "4G"
+          },
+          {
+            "a": "Int",
+            "u": 4,
+            "s": "",
+            "m": "5G"
+          },
+          {
+            "a": "Int",
+            "u": 5,
+            "s": "",
+            "m": "Active"
+          }
+        ]
+      }
+    },
+    {
+      "c": 195,
+      "n": "NFC Status",
+      "p": {
+        "p": [
+          {
+            "a": "Int",
+            "u": 0,
+            "s": "",
+            "m": "Status"
+          }
+        ]
+      }
+    },
+    {
+      "c": 120,
+      "n": "Orientation",
+      "p": {
+        "p": [
+          {
+            "a": "Int",
+            "u": 0,
+            "s": "",
+            "m": "Is"
+          }
+        ]
+      }
+    },
+    {
+      "c": 148,
+      "n": "Pen Out",
+      "p": {
+        "p": []
+      }
+    },
+    {
+      "c": 149,
+      "n": "Pen Menu",
+      "p": {
+        "p": []
+      }
+    },
+    {
+      "c": 10,
+      "n": "Power",
+      "p": {
+        "p": [
+          {
+            "a": "Int",
+            "u": 0,
+            "s": "",
+            "m": "Source"
+          }
+        ]
+      }
+    },
+    {
+      "c": 14,
+      "n": "Power Save Mode",
+      "p": {
+        "p": [
+          {
+            "a": "Int",
+            "u": 0,
+            "s": "",
+            "m": "Enabled"
+          }
+        ]
+      }
+    },
+    {
+      "c": 104,
+      "n": "Pressure",
+      "p": {
+        "p": [
+          {
+            "a": "Int",
+            "u": 0,
+            "s": "0:2000",
+            "m": "From"
+          },
+          {
+            "a": "Int",
+            "u": 1,
+            "s": "0:2000",
+            "m": "To"
+          }
+        ]
+      }
+    },
+    {
+      "c": 125,
+      "n": "Proximity Sensor",
+      "p": {
+        "p": []
+      }
+    },
+    {
+      "c": 142,
+      "n": "Profile Active",
+      "p": {
+        "p": [
+          {
+            "a": "Str",
+            "u": 0,
+            "s": "prof:1",
+            "m": "Name"
+          }
+        ]
+      }
+    },
+    {
+      "c": 143,
+      "n": "Task Running",
+      "p": {
+        "p": [
+          {
+            "a": "Str",
+            "u": 0,
+            "s": "m:1",
+            "m": "Name"
+          }
+        ]
+      }
+    },
+    {
+      "c": 145,
+      "n": "Signal Strength",
+      "p": {
+        "p": [
+          {
+            "a": "Int",
+            "u": 0,
+            "s": "0:8",
+            "m": "From"
+          },
+          {
+            "a": "Int",
+            "u": 1,
+            "s": "0:8",
+            "m": "To"
+          }
+        ]
+      }
+    },
+    {
+      "c": 180,
+      "n": "Temperature",
+      "p": {
+        "p": [
+          {
+            "a": "Int",
+            "u": 0,
+            "s": "0:50",
+            "m": "From"
+          },
+          {
+            "a": "Int",
+            "u": 1,
+            "s": "0:50",
+            "m": "To"
+          }
+        ]
+      }
+    },
+    {
+      "c": 147,
+      "n": "Unread Text",
+      "p": {
+        "p": [
+          {
+            "a": "Int",
+            "u": 0,
+            "s": "",
+            "m": "Type"
+          },
+          {
+            "a": "Str",
+            "u": 1,
+            "s": "sms:2:?",
+            "m": "Sender"
+          },
+          {
+            "a": "Str",
+            "u": 2,
+            "s": "t:2:?",
+            "m": "Content"
+          }
+        ]
+      }
+    },
+    {
+      "c": 150,
+      "n": "USB Connected",
+      "p": {
+        "p": [
+          {
+            "a": "Int",
+            "u": 0,
+            "s": "",
+            "m": "Class"
+          }
+        ]
+      }
+    },
+    {
+      "c": 165,
+      "n": "Variable Value",
+      "p": {
+        "p": []
+      }
+    },
+    {
+      "c": 136,
+      "n": "VPN Connected",
+      "p": {
+        "p": [
+          {
+            "a": "Int",
+            "u": 0,
+            "s": "",
+            "m": "Active"
+          },
+          {
+            "a": "Int",
+            "u": 1,
+            "s": "true",
+            "m": "Check After Screen Unlock"
+          }
+        ]
+      }
+    },
+    {
+      "c": 160,
+      "n": "Wifi Connected",
+      "p": {
+        "p": [
+          {
+            "a": "Str",
+            "u": 0,
+            "s": "ssid:3:?",
+            "m": "SSID"
+          },
+          {
+            "a": "Str",
+            "u": 1,
+            "s": "mac:1:?",
+            "m": "MAC"
+          },
+          {
+            "a": "Str",
+            "u": 2,
+            "s": "t:1:?",
+            "m": "IP"
+          },
+          {
+            "a": "Int",
+            "u": 3,
+            "s": "",
+            "m": "Active"
+          },
+          {
+            "a": "Int",
+            "u": 4,
+            "s": "true",
+            "m": "Check After Screen Unlock"
+          }
+        ]
+      }
+    },
+    {
+      "c": 186,
+      "n": "Custom Setting",
+      "p": {
+        "p": [
+          {
+            "a": "Int",
+            "u": 0,
+            "s": "",
+            "m": "Type"
+          },
+          {
+            "a": "Str",
+            "u": 1,
+            "s": "sset:1",
+            "m": "Name"
+          },
+          {
+            "a": "Str",
+            "u": 2,
+            "s": "t:1",
+            "m": "Value"
+          }
+        ]
+      }
+    },
+    {
+      "c": 170,
+      "n": "Wifi Near",
+      "p": {
+        "p": [
+          {
+            "a": "Str",
+            "u": 0,
+            "s": "ssid:1:?",
+            "m": "SSID"
+          },
+          {
+            "a": "Str",
+            "u": 1,
+            "s": "mac:1:?",
+            "m": "MAC"
+          },
+          {
+            "a": "Str",
+            "u": 2,
+            "s": "let:1:?",
+            "m": "Capabilities"
+          },
+          {
+            "a": "Int",
+            "u": 3,
+            "s": "0:9",
+            "m": "Min. Activate Signal Level"
+          },
+          {
+            "a": "Int",
+            "u": 4,
+            "s": "0:196:?",
+            "m": "Channel"
+          },
+          {
+            "a": "Int",
+            "u": 5,
+            "s": "",
+            "m": "Toggle Wifi"
+          }
+        ]
+      }
+    },
+    {
+      "c": 192,
+      "n": "Sleeping",
+      "p": {
+        "p": [
+          {
+            "a": "Bundle",
+            "u": 0,
+            "s": "",
+            "m": "Output Variables"
+          },
+          {
+            "a": "Int",
+            "u": 1,
+            "s": "0:100:85",
+            "m": "Minimum Confidence"
+          },
+          {
+            "a": "Int",
+            "u": 2,
+            "s": "1:6:2",
+            "m": "Maximum Light"
+          },
+          {
+            "a": "Int",
+            "u": 3,
+            "s": "1:6:2",
+            "m": "Maximum Motion"
+          }
+        ]
+      }
+    },
+    {
+      "c": 193,
+      "n": "Matter Light (Experimental)",
+      "p": {
+        "p": [
+          {
+            "a": "Bundle",
+            "u": 0,
+            "s": "",
+            "m": "Output Variables"
+          },
+          {
+            "a": "Str",
+            "u": 1,
+            "s": "mattdevi:1",
+            "m": "Device IDs/Names"
+          }
+        ]
+      }
+    },
+    {
+      "c": 194,
+      "n": "Work Profile",
+      "p": {
+        "p": []
+      }
+    },
+    {
+      "c": 198,
+      "n": "Shizuku Available",
+      "p": {
+        "p": []
+      }
+    },
+    {
+      "c": 188,
+      "n": "Dark Mode",
+      "p": {
+        "p": []
+      }
+    },
+    {
+      "c": 190,
+      "n": "Any Sensor",
+      "p": {
+        "p": [
+          {
+            "a": "Bundle",
+            "u": 0,
+            "s": "",
+            "m": "Output Variables"
+          },
+          {
+            "a": "Str",
+            "u": 1,
+            "s": "t:1",
+            "m": "Type"
+          },
+          {
+            "a": "Int",
+            "u": 2,
+            "s": "100:15000:1000",
+            "m": "Interval (ms)"
+          },
+          {
+            "a": "Int",
+            "u": 3,
+            "s": "",
+            "m": "Interval Type (Check Help)"
+          },
+          {
+            "a": "Int",
+            "u": 4,
+            "s": "",
+            "m": "Convert Orientation"
+          }
+        ]
+      }
+    }
+  ]
+}

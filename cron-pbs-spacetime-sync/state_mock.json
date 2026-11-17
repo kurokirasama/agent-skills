@@ -1,0 +1,15 @@
+{
+  "videos": {
+    "test_vid_1": {
+      "title": "Test Video 1",
+      "url": "https://www.youtube.com/watch?v=test_vid_1",
+      "download_status": "pending"
+    },
+    "test_vid_2": {
+      "title": "Test Video 2",
+      "url": "https://www.youtube.com/watch?v=test_vid_2",
+      "download_status": "pending"
+    }
+  },
+  "queue": ["test_vid_1", "test_vid_2"]
+}

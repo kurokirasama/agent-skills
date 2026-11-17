@@ -1,0 +1,32 @@
+                                                              Reembolso de Gastos Médicos
+
+
+
+
+Datos del Afiliado                                                                             Datos Contratante
+Rut:                                                             12345678-9                    Rut:                                                           98765432-1
+
+Nombre:                               USER NAME USER NAME                                 Nombre:                                       UNIVERSIDAD DEL BIO BIO
+                                                                                               F. Recepción:                                                      09‐10‐2026
+                                                                                               F. Contable:                                                       19‐10‐2026
+
+
+Indentificación Paciente                                                                                                  Remesa N°:                                  72137
+
+BENEFICIARY ONE                                                                                              Solicitud N°:                              341034
+
+
+Detalle de Reembolsos de cada prestación
+N                                 Cant.        Fecha        Valor      Bonif.        Monto          Tope          %         Monto        Ded.       Monto a           Cod.
+°               Prestación        Prest.       Prest.       Prest.     Isapre      Reclamado       Arancel      Reem.       Afecto       Póliza     Pagar $         Rechazo
+
+ 1 ATENCION KINESIOLOGICA                  2   21‐09‐2026    $20.000      $9.020         $10.980      $10.980    40.0 %         $4.392         $0        $4.392
+    INTEGRAL
+
+ SubTotal ﴾$﴿                              2                $20.000      $9.020         $10.980                                $4.392         $0        $4.392
+
+
+
+
+Comentarios/Observaciones
+          2      ANTECEDENTES PRESENTADOS: Reembolso﴾s﴿: CLINIC SAMPLE 0000000002.

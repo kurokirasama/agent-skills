@@ -1,0 +1,16 @@
+# STATE_SCHEMA.yaml
+# Schema for cron-nvidia-kernel-audit state management
+
+last_run: string # ISO 8601 timestamp of the last successful run
+status: string # current stage: idle, researching, analyzing, reporting
+recommendation: string # GO, NO_GO, or null
+last_checked_kernel: string # e.g., 6.17.0-22-generic
+findings:
+  - title: string
+    url: string
+    summary: string
+    date: string
+errors:
+  - timestamp: string
+    stage: string
+    message: string

@@ -1,0 +1,35 @@
+                                                             Reembolso de Gastos Médicos
+
+
+
+
+Datos del Afiliado                                                                                 Datos Contratante
+Rut:                                                               12345678-9                      Rut:                                                           98765432-1
+
+Nombre:                                  USER NAME USER NAME                                  Nombre:                                       UNIVERSIDAD DEL BIO BIO
+                                                                                                   F. Recepción:                                                       09‐10‐2026
+
+                                                                                                   F. Contable:                                                        19‐10‐2026
+
+
+Indentificación Paciente                                                                                                  Remesa N°:                                       72097
+
+BENEFICIARY TWO                                                                                                  Solicitud N°:                                   341001
+
+
+Detalle de Reembolsos de cada prestación
+N                           Cant.         Fecha        Valor         Bonif.          Monto          Tope          %        Monto         Ded.          Monto a Pagar       Cod.
+°         Prestación        Prest.        Prest.       Prest.        Isapre        Reclamado       Arancel      Reem.      Afecto        Póliza             $            Rechazo
+
+ 1 MEDICAMENTOS                      1    08‐10‐2026     $12.116              $0         $12.116      $12.116     0.0 %             $0            $0              $0          0454
+    GENERICOS
+
+ SubTotal ﴾$﴿                        1                 $12.116                $0        $12.116                                     $0        $0                  $0
+
+
+
+
+Comentarios/Observaciones
+          1 RECHAZADA DEBE ENVIAR RECETA ORIGINAL Se recepciona boleta sin receta médica que respalde compra de ﴾receta compounded ﴿
+
+          2 ANTECEDENTES PRESENTADOS: Boleta﴾s﴿: PHARMACY SAMPLE 0000000001.

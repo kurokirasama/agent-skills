@@ -1,0 +1,83 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{hyphenat}
+\usepackage[spanish,activeacute,es-tabla]{babel}
+\spanishdecimal{.}
+\usepackage{fancyhdr}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[authoryear,round]{natbib}
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage{tikz}
+\usepackage[algoruled]{algorithm2e}
+\usepackage{enumerate}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=blue,citecolor=blue,plainpages=false]{hyperref}
+\usepackage[all]{hypcap}
+\usepackage[left=3cm,right=2cm,top=3cm,bottom=3cm]{geometry}
+\usepackage{graphicx}
+\usepackage{pdflscape}
+\usepackage{float}
+\usepackage{pgfplots}
+\usepackage{csquotes}
+\usepackage{makeidx}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{lmodern} 
+\usepackage{listings}
+\usepackage{caption}
+\usepackage{csvsimple}
+\usepackage{adjustbox}
+
+\graphicspath{{figures/}}
+
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    basicstyle=\small\ttfamily,
+    breakatwhitespace=true,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+}
+\lstset{style=mystyle}
+
+\newcommand{\refer}[3][]{\hyperref[#3]{#2~\ref*{#3}#1}}
+
+\pagestyle{fancy} \rhead{} \chead{} \lhead{\rightmark}
+\cfoot{\thepage} \rfoot{} \lfoot{}
+\setcounter{tocdepth}{2}
+
+\title{TITULO DEL PROYECTO}
+\author{AUTORES}
+\date{\today}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\listoffigures
+\listoftables
+
+\input{00_introduction/0_00_introduction.tex}
+\input{1er_chapter/0_1er_chapter.tex}
+\input{2do_chapter/0_2do_chapter.tex}
+\input{3er_chapter/0_3er_chapter.tex}
+\input{4to_chapter/0_4to_chapter.tex}
+\input{5to_chapter/0_5to_chapter.tex}
+\input{6to_chapter/0_6to_chapter.tex}
+\input{98_conclusions/0_98_conclusions.tex}
+
+\bibliographystyle{apalike}
+\phantomsection
+\addcontentsline{toc}{section}{Referencias}
+\bibliography{template.bib}
+
+\input{99_appendix/0_99_appendix.tex}
+\end{document}

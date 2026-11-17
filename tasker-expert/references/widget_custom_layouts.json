@@ -1,0 +1,394 @@
+{
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Tasker Widget v2 Custom Layout Schema",
+      "description": "Defines the JSON structure for Tasker's Widget v2 Custom Layout parameter, used to build Glance widgets. **IMPORTANT: You MUST ensure that properties applied to a specific element type (e.g., Button, Text) are actually valid and supported by THAT element type, not just listed generically in base structures. Applying unsupported properties will lead to errors.**",
+      "definitions": {
+        "colorString": {
+          "description": "A color value. MUST be one of the explicitly allowed Material You names (see definition 15) or a hex format string (#RRGGBB or #AARRGGBB).",
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "widgetBackground",
+                "primary", "onPrimary",
+                "primaryContainer", "onPrimaryContainer",
+                "secondary", "onSecondary",
+                "secondaryContainer", "onSecondaryContainer",
+                "tertiary", "onTertiary",
+                "tertiaryContainer", "onTertiaryContainer",
+                "error", "onError",
+                "errorContainer", "onErrorContainer",
+                "background", "onBackground",
+                "surface", "onSurface",
+                "surfaceVariant", "onSurfaceVariant",
+                "inverseSurface", "inverseOnSurface",
+                "outline",
+                "inversePrimary"
+              ]
+            },
+            {
+              "type": "string",
+              "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{8})$"
+            }
+          ]
+        },
+        "sizeUnit": {
+          "type": ["number", "string"],
+           "description": "A size value in DP (number) or a Tasker variable string."
+        },
+        "boolOrVariable": {
+            "type": ["boolean", "string"],
+            "description": "A boolean value (true/false) or a Tasker variable string."
+        },
+        "intOrVariable": {
+            "type": ["integer", "string"],
+            "description": "An integer value or a Tasker variable string."
+        },
+        "stringOrVariable": {
+            "type": "string",
+            "description": "A string value, potentially containing Tasker variables."
+        },
+        "paddingValue": {
+            "oneOf": [
+                { "$ref": "#/definitions/sizeUnit" },
+                {
+                    "type": "object",
+                    "properties": {
+                        "top": { "$ref": "#/definitions/sizeUnit" },
+                        "bottom": { "$ref": "#/definitions/sizeUnit" },
+                        "start": { "$ref": "#/definitions/sizeUnit" },
+                        "end": { "$ref": "#/definitions/sizeUnit" }
+                    },
+                    "additionalProperties": false
+                }
+            ],
+            "description": "Padding definition. Can be a single number (for all sides) or an object with specific sides (top, bottom, start, end)."
+        },
+        "sizeValue": {
+            "oneOf": [
+                 { "$ref": "#/definitions/sizeUnit" },
+                 {
+                    "type": "string",
+                    "enum": ["fill"],
+                    "description": "Use 'fill' to represent fillMaxSize."
+                 },
+                 {
+                     "type": "object",
+                     "properties": {
+                         "width": { "$ref": "#/definitions/sizeUnit" },
+                         "height": { "$ref": "#/definitions/sizeUnit" },
+                         "fillMaxWidth": { "type": "boolean" },
+                         "fillMaxHeight": { "type": "boolean" }
+                     },
+                     "description": "Define specific dimensions or fill behavior.",
+                     "additionalProperties": false
+                 }
+            ],
+            "description": "Size definition. Can be a single number (for square size), 'fill' (for fillMaxSize), or an object defining width/height/fill."
+        },
+        "actionProperties": {
+            "commandPrefix": { "$ref": "#/definitions/stringOrVariable" },
+            "task": { "$ref": "#/definitions/stringOrVariable" },
+            "taskVariables": {
+                "type": "object",
+                "description": "Key-value pairs for task variables. Keys MUST be valid Tasker **local** variable names (e.g., '%my_var', must start with '%', be all lowercase, and >= 3 chars). Values are strings, potentially containing Tasker variables.",
+                "additionalProperties": { "$ref": "#/definitions/stringOrVariable" }
+            },
+            "command": { "$ref": "#/definitions/stringOrVariable" },
+            "tag": { "$ref": "#/definitions/stringOrVariable" }
+        },
+        "baseStructure": {
+            "type": "object",
+            "properties": {
+                "type": { "type": "string", "description": "The type of the UI element." },
+                "padding": { "$ref": "#/definitions/paddingValue" },
+                "paddingTop": { "$ref": "#/definitions/sizeUnit" },
+                "paddingBottom": { "$ref": "#/definitions/sizeUnit" },
+                "paddingStart": { "$ref": "#/definitions/sizeUnit" },
+                "paddingEnd": { "$ref": "#/definitions/sizeUnit" },
+                "size": { "$ref": "#/definitions/sizeValue" },
+                "width": { "$ref": "#/definitions/sizeUnit" },
+                "height": { "$ref": "#/definitions/sizeUnit" },
+                "fillMaxSize": { "$ref": "#/definitions/boolOrVariable" },
+                "fillMaxWidth": { "$ref": "#/definitions/boolOrVariable" },
+                "fillMaxHeight": { "$ref": "#/definitions/boolOrVariable" },
+                "isWeighted": { "$ref": "#/definitions/boolOrVariable" },
+                "cornerRadius": { "$ref": "#/definitions/intOrVariable" },
+                "backgroundColor": { "$ref": "#/definitions/colorString" },
+                "visibility": {
+                    "type": "string",
+                     "enum": ["Visible", "Invisible", "Gone"], // Also handles boolean/variable via string
+                     "description": "Visibility state (Visible, Invisible, Gone) or a variable."
+                },
+                "commandPrefix": { "$ref": "#/definitions/stringOrVariable" },
+                "task": { "$ref": "#/definitions/stringOrVariable" },
+                "taskVariables": {
+                    "type": "object",
+                    "description": "Key-value pairs for task variables.",
+                    "additionalProperties": { "$ref": "#/definitions/stringOrVariable" }
+                },
+                "command": { "$ref": "#/definitions/stringOrVariable" },
+                "tag": { "$ref": "#/definitions/stringOrVariable" }
+                // Note: useMaterialYouColors is intentionally omitted as per instructions
+            },
+            "required": ["type"]
+        },
+        "containerStructure": {
+            "allOf": [
+                { "$ref": "#/definitions/baseStructure" },
+                {
+                    "type": "object",
+                    "properties": {
+                         "children": {
+                            "type": "array",
+                            "items": { "$ref": "#/definitions/anyStructure" }
+                        },
+                        "verticalAlignment": {
+                            "type": "string",
+                            "enum": ["Top", "Center", "Bottom"],
+                            "description": "Vertical alignment for children."
+                        },
+                        "horizontalAlignment": {
+                            "type": "string",
+                             "enum": ["Start", "Center", "End"],
+                             "description": "Horizontal alignment for children."
+                        }
+                    }
+                }
+            ]
+        },
+        "textStyleProperties": {
+             "text": { "$ref": "#/definitions/stringOrVariable" },
+             "color": { "$ref": "#/definitions/colorString" },
+             "align": {
+                 "type": "string",
+                 "enum": ["Left", "Right", "Center", "Start", "End"],
+                 "description": "Text alignment."
+             },
+             "textSize": { "$ref": "#/definitions/stringOrVariable" }, // string to allow variables
+             "bold": { "$ref": "#/definitions/boolOrVariable" },
+             "italic": { "$ref": "#/definitions/boolOrVariable" },
+             "underline": { "$ref": "#/definitions/boolOrVariable" },
+             "linethrough": { "$ref": "#/definitions/boolOrVariable" },
+             "fontFamily": {
+                 "type": "string",
+                 "enum": ["Serif", "SansSerif", "Monospace", "Cursive"],
+                 "description": "Font family name or standard enum."
+             }
+        },
+        // --- Specific Element Types ---
+        "Box": {
+            "allOf": [ { "$ref": "#/definitions/containerStructure" } ],
+            "properties": { "type": { "const": "Box" } }
+        },
+        "Column": {
+             "description": "A vertical layout container. If more than 10 children are added or expected (e.g., in the case of dynamic lists), you MUST enable scrolling for the column.",
+             "allOf": [
+                 { "$ref": "#/definitions/containerStructure" },
+                 {
+                     "properties": {
+                         "scrolling": { "$ref": "#/definitions/boolOrVariable" }
+                     }
+                 }
+             ],
+             "properties": { "type": { "const": "Column" } }
+        },
+         "Grid": {
+             "allOf": [
+                 { "$ref": "#/definitions/containerStructure" },
+                 {
+                     "properties": {
+                         "fixed": { "$ref": "#/definitions/intOrVariable" },
+                         "minSize": { "$ref": "#/definitions/intOrVariable" }
+                     }
+                 }
+             ],
+             "properties": { "type": { "const": "Grid" } }
+        },
+        "Row": {
+            "description": "A horizontal layout container. No more than 10 children supported.",
+            "allOf": [ { "$ref": "#/definitions/containerStructure" } ],
+            "properties": { "type": { "const": "Row" } }
+        },
+        "Scaffold": {
+             "allOf": [
+                 { "$ref": "#/definitions/containerStructure" },
+                 {
+                     "properties": {
+                         "horizontalPadding": { "$ref": "#/definitions/intOrVariable" },
+                         "titleBar": { "$ref": "#/definitions/TitleBar" }
+                     }
+                 }
+             ],
+             "properties": { "type": { "const": "Scaffold" } }
+        },
+        "Spacer": {
+            "allOf": [ { "$ref": "#/definitions/baseStructure" } ],
+             "properties": { "type": { "const": "Spacer" } }
+        },
+        "Text": {
+            "allOf": [
+                { "$ref": "#/definitions/baseStructure" },
+                { "$ref": "#/definitions/textStyleProperties" },
+                {
+                    "properties": {
+                         "maxLines": { "$ref": "#/definitions/intOrVariable" },
+                         "font": { "$ref": "#/definitions/stringOrVariable", "description": "Path to custom font file." }
+                    }
+                }
+            ],
+             "properties": { "type": { "const": "Text" } }
+        },
+        "Image": {
+             "allOf": [
+                 { "$ref": "#/definitions/baseStructure" },
+                 {
+                     "properties": {
+                         "url": { "$ref": "#/definitions/stringOrVariable" },
+                         "contentScale": {
+                             "type": "string",
+                             "enum": ["Crop", "Fit", "FillBounds"]
+                         },
+                         "tint": { "$ref": "#/definitions/colorString" },
+                         "circle": { "$ref": "#/definitions/boolOrVariable" },
+                         "sepia": { "$ref": "#/definitions/boolOrVariable" },
+                         "grayscale": { "$ref": "#/definitions/boolOrVariable" },
+                         "blur": { "$ref": "#/definitions/intOrVariable" }
+                     }
+                 }
+             ],
+             "properties": { "type": { "const": "Image" } }
+        },
+        "ButtonBase": { // Abstract base for button types
+             "allOf": [
+                 { "$ref": "#/definitions/baseStructure" },
+                 {
+                     "properties": {
+                        "enabled": { "$ref": "#/definitions/boolOrVariable" },
+                        "contentColor": { "$ref": "#/definitions/colorString" },
+                        "icon": { "$ref": "#/definitions/stringOrVariable" }
+                     }
+                 }
+             ]
+        },
+        "Button": {
+             "allOf": [
+                 { "$ref": "#/definitions/ButtonBase" },
+                 {
+                     "properties": {
+                        "text": { "$ref": "#/definitions/stringOrVariable" },
+                        "buttonType": {
+                            "type": "string",
+                             "enum": ["Filled", "Outline", "Normal"]
+                        }
+                     }
+                 }
+             ],
+             "properties": { "type": { "const": "Button" } },
+             "description": "Standard button element. **Note: 'textSize' is NOT a supported property for Buttons.** Use 'contentColor' for text/icon color."
+        },
+        "IconButton": {
+             "allOf": [
+                 { "$ref": "#/definitions/ButtonBase" },
+                 {
+                     "properties": {
+                        "buttonType": {
+                            "type": "string",
+                             "enum": ["Circle", "Square"]
+                        }
+                     }
+                 }
+             ],
+             "properties": { "type": { "const": "IconButton" } }
+        },
+        "CompoundBase": { // Abstract base for CheckBox/Switch
+             "allOf": [
+                 { "$ref": "#/definitions/baseStructure" },
+                 { "$ref": "#/definitions/textStyleProperties" }, // Inherits text styling
+                 {
+                     "properties": {
+                        "checked": { "$ref": "#/definitions/boolOrVariable" },
+                        "checkedColor": { "$ref": "#/definitions/colorString" },
+                        "uncheckedColor": { "$ref": "#/definitions/colorString" }
+                     }
+                 }
+             ]
+        },
+        "CheckBox": {
+             "allOf": [ { "$ref": "#/definitions/CompoundBase" } ],
+             "properties": { "type": { "const": "CheckBox" } }
+        },
+        "Switch": {
+             "allOf": [
+                 { "$ref": "#/definitions/CompoundBase" },
+                 {
+                     "properties": {
+                         "checkedTrackColor": { "$ref": "#/definitions/colorString" },
+                         "uncheckedTrackColor": { "$ref": "#/definitions/colorString" }
+                     }
+                 }
+             ],
+             "properties": { "type": { "const": "Switch" } }
+        },
+        "Progress": {
+             "allOf": [
+                 { "$ref": "#/definitions/baseStructure" },
+                 {
+                     "properties": {
+                         "color": { "$ref": "#/definitions/colorString" },
+                         "trackColor": { "$ref": "#/definitions/colorString" },
+                         "progress": { "$ref": "#/definitions/intOrVariable", "description": "Value 0-100 or variable" },
+                         "progressType": {
+                            "type": "string",
+                             "enum": ["Linear", "Circle"]
+                         },
+                         "text": { "$ref": "#/definitions/stringOrVariable", "description": "Text overlay for Circle type." },
+                         "resolution": { "$ref": "#/definitions/intOrVariable", "description": "Diameter for Circle type." },
+                         "barWidth": { "$ref": "#/definitions/intOrVariable", "description": "Stroke width for Circle type." }
+                     }
+                 }
+             ],
+             "properties": { "type": { "const": "Progress" } }
+        },
+         "TitleBar": {
+             "allOf": [
+                 { "$ref": "#/definitions/baseStructure" },
+                 {
+                     "properties": {
+                         "icon": { "$ref": "#/definitions/stringOrVariable" },
+                         "text": { "$ref": "#/definitions/stringOrVariable" },
+                         "iconColor": { "$ref": "#/definitions/colorString" },
+                         "textColor": { "$ref": "#/definitions/colorString" },
+                         "actions": {
+                             "type": "array",
+                             "items": { "$ref": "#/definitions/IconButton" }
+                         }
+                     }
+                 }
+             ],
+             "properties": { "type": { "const": "TitleBar" } },
+             "required": ["type", "icon", "text"]
+        },
+        // --- Aggregator for any structure ---
+        "anyStructure": {
+             "oneOf": [
+                { "$ref": "#/definitions/Box" },
+                { "$ref": "#/definitions/Column" },
+                { "$ref": "#/definitions/Grid" },
+                { "$ref": "#/definitions/Row" },
+                { "$ref": "#/definitions/Scaffold" },
+                { "$ref": "#/definitions/Spacer" },
+                { "$ref": "#/definitions/Text" },
+                { "$ref": "#/definitions/Image" },
+                { "$ref": "#/definitions/Button" },
+                { "$ref": "#/definitions/IconButton" },
+                { "$ref": "#/definitions/CheckBox" },
+                { "$ref": "#/definitions/Switch" },
+                { "$ref": "#/definitions/Progress" },
+                { "$ref": "#/definitions/TitleBar" }
+             ]
+        }
+      },
+      // --- Root Structure ---
+       "$ref": "#/definitions/anyStructure" // The root must be a single CustomStructure element
+    }
