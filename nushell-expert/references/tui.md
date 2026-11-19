@@ -128,4 +128,12 @@ ls
 
 - A hook error goes to the status bar as `error:<msg>`. With no status label, the error is invisible.
 - `q` quits only when no text field has focus; inside a search or text box it is a character. Esc leaves the field first.
-- Enter on a text box submits the whole TUI with the text as `selected`; read `values` for multi-field forms.
+- Enter on a text box submits the whole TUI with the text as `selected` (a `string`, not a `record`); read `values` for multi-field forms, use a submit-and-relaunch loop carrying `values` forward, and always check `($selected | describe) | str starts-with "record"` before accessing `.op?`.
+- `tui table` cells do **not** interpret ANSI (raw escapes appear) — use plain Unicode blocks (`█`/`░`) and `$env.config.tui` / `color_config`. `tui preview`, however, renders ANSI cleanly (`glow -s dark`, `bat --color=always`).
+- Hook state `rows` is an integer count, not row data. Keep sort/selection/expand state in a per-PID `$nu.temp-dir` NUON file (cleaned in `finally`) and sort raw records before shaping display rows.
+- `tui bind` normalizes bare uppercase letters (`tui bind D` overwrites `tui bind d`); always bind `shift+d` for Shift+D.
+- Global `tui bind enter` intercepts Enter on `tui button`s too; give buttons explicit `--id`s and dispatch on `$state.focused` inside `tui bind enter`.
+- Nested `tui debug --dialog` inside a hook corrupts the parent screen buffer; use submit-and-relaunch for confirm dialogs/forms, and `tui tab` pages (or split preview toggles) for overlays.
+- `tui tree` on a nested record passes only the leaf value (`{}`) to `--from` and runs `--on-select` one frame after `--from`; for directory-only trees driving a dependent `--from` table, a tree-formatted `tui table` (`▾`/`▸` rows) updates `--from` synchronously on the same frame.
+- `tui debug` does **not** accept `--refresh` (live-only on `tui run`); test refresh callbacks via a bound key (`r` / `ctrl+r`).
+- In Nushell 0.117, `"2026.02.30 14:30" | into datetime --format "%Y.%m.%d %H:%M"` can silently substitute today's date instead of raising an error; verify calendar validity with a `format date` roundtrip check (`$roundtrip == $input`).

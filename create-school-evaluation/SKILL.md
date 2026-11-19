@@ -59,6 +59,10 @@ Generate a dedicated track folder (e.g., `conductor/tracks/create_evaluation_<su
   - No usar títulos en negrita en los encabezados (usar `#`, `##`, `###`, `####`).
   - Todas las fórmulas matemáticas/físicas en código LaTeX (`$...$`).
   - Compilación a PDF mediante Pandoc / XeLaTeX aplicando el pipeline de `add-preamble`.
+  - La pauta (`## Pauta de Corrección y Criterios de Evaluación`) DEBE comenzar en página nueva con `\newpage` antes del encabezado.
+  - Escala de calificación: `Nota = (Puntaje + 10) / 10` (0 pts = 1.0; total = 7.0). Sin tablas de exigencia porcentual.
+  - `fontsize: 12pt` obligatorio en el YAML de evaluaciones.
+  - Portada con `**Nota:**` y espacio en blanco para la calificación, en vez de `**Ponderación:**`.
 - **Acceptance Criteria:** Escenarios BDD / Gherkin (`Given-When-Then`).
 
 #### B. `plan.md`

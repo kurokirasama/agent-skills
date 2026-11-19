@@ -19,9 +19,13 @@ Adjoin the **Research Architect** persona.
 - **Expertise:** Academic writing standards, LaTeX (article and report classes), and project organization.
 
 ## Goal
-When activated via `/conductor-newtrack activate initialize-research`, your goal is to analyze the research requirements and generate an **implementation track specifically for scaffolding the LaTeX environment**.
+When activated via `/conductor-newtrack activate initialize-research`, your goal is to analyze the research requirements and generate an **implementation track specifically for scaffolding the research workspace and LaTeX environment**.
 
-**CRITICAL**: The output of this skill is a track whose tasks are focused strictly on *selecting the correct template and initializing the folder structure*. You are planning the research setup phase.
+**CRITICAL PREREQUISITE (`conductor-setup` First):** `initialize-research` is a `/conductor-newtrack` skill — it requires an initialized `conductor/` workspace (`conductor/index.md`, `product.md`, `tech-stack.md`, `workflow.md`).
+- **Always verify `conductor/index.md` exists BEFORE generating the track.**
+- If missing: HALT track creation, send a Discord alert (`to-discord $msg -p`), and instruct/invoke `conductor-setup` first (since `conductor-setup` scaffolds `conductor/` and public/private git privacy, while `initialize-research` scaffolds the research directories and LaTeX template).
+
+**CRITICAL**: The output of this skill is a track whose tasks are focused strictly on *selecting the correct template and initializing the clean research folder structure*. You are planning the research setup phase.
 
 ## Logic & Workflow
 
@@ -29,26 +33,28 @@ When activated via `/conductor-newtrack activate initialize-research`, your goal
 Generate a new track directory (e.g., `conductor/tracks/research_scaffold_YYYYMMDD/`) with the following files:
 
 #### A. `spec.md`
-- **Overview:** High-level goals for the LaTeX project (Report or Article).
-- **Functional Requirements:** 
-    - Determine project type (Report vs Article).
-    - Scaffold directory structure.
-    - Setup Conductor context.
-- **Acceptance Criteria:** A valid LaTeX project structure with `main.tex` and necessary subfolders.
+- **Overview:** High-level goals for the research project and LaTeX artifact (Report or Article).
+- **Functional Requirements:**
+    - Confirm `conductor/index.md` is initialized (`conductor-setup` completed).
+    - Determine LaTeX project type (Report vs Article) and target paper slug (`<paper_slug>`, e.g., `articles/main_paper/`).
+    - Scaffold standard research workspace folders (`articles/`, `bibliography/`, `docs/`, `scripts/`, `shell/`) alongside modular LaTeX assets (`articles/<paper_slug>/`).
+- **Acceptance Criteria (BDD/Gherkin):** Valid `conductor/` configuration plus modular LaTeX structure under `articles/<paper_slug>/main.tex` (or chosen target path) and standard top-level research directories.
 
 #### B. `plan.md`
 The generated plan MUST follow this structure:
 
-**Phase 1: Project Type Selection**
-- [ ] Task: Determine project type (Report/Article) by checking prompt keywords or using `ask_user`.
+**Phase 1: Project Type & Layout Selection**
+- [ ] Task: Verify `conductor/index.md` exists (if not, run `conductor-setup` first).
+- [ ] Task: Determine project type (Report vs Article) and `<paper_slug>` (defaulting articles to `articles/<paper_slug>/` rather than cluttering the repo root) by checking prompt/project-plan keywords or using `ask_user` (Discord first).
 
-**Phase 2: Template Scaffolding**
-- [ ] Task: Copy the contents of the appropriate template folder (located at `~/workspace/llms_configs/skills/initialize-research/assets/template_tex_report/` or `assets/template_tex_article/`) to the workspace root using Nushell (`cp -r ...`).
-- [ ] Task: Initialize the project's long-term memory note in Obsidian. Activate the `longterm-memory-orchestrator` and, seeing that `init-session` returns `null`, proceed to the `longterm-memory-writer` skill guidelines (run `get-init-metadata` and `get-deep-context`, then manually create the directory and index note using your file editing tools).
-- [ ] Task: Add the mandatory long-term memory update instruction to the project's Conductor environment (workflow.md or product-guidelines.md) ensuring that after archiving a track, the agent follows this ordered protocol: archive → `git-sync` → `longterm-memory-orchestrator` (which triggers `longterm-memory-writer`) → attempt `write-trajectory-log` to record track completion, key decisions, outcomes, lessons learned, and session trajectory.
+**Phase 2: Workspace & Template Scaffolding**
+- [ ] Task: Create standard research workspace directories if absent: `articles/<paper_slug>/`, `bibliography/`, `docs/`, `scripts/`, `shell/`.
+- [ ] Task: Copy the contents of the appropriate template folder (resolving `$env.MY_ENV_VARS.llms_configs` fallback `~/workspace/llms_configs`, under `skills/initialize-research/assets/template_tex_report/` or `assets/template_tex_article/`) into `articles/<paper_slug>/` (or target directory) using Nushell (`cp -r ...`).
+- [ ] Task: Initialize the project's long-term memory note in Obsidian. Activate `longterm-memory-orchestrator` and, if `init-session` returns `null`, follow `longterm-memory-writer` guidelines to create the project memory folder and note.
+- [ ] Task: Add the mandatory long-term memory update instruction to the project's Conductor environment (`workflow.md` or `product-guidelines.md`) ensuring that after archiving a track, the agent follows: archive → `git-sync` → `longterm-memory-orchestrator` → `write-trajectory-log`.
 
 **Phase 3: Final Verification**
-- [ ] Task: Verify existence of `main.tex` and core folders (`figures/`, `tables/`, chapters).
+- [ ] Task: Verify existence of `articles/<paper_slug>/main.tex`, standard research directories (`bibliography/`, `docs/`, `scripts/`, `shell/`), and core LaTeX subfolders (`figures/`, `tables/`, chapters/sections).
 
 ## Conductor Compliance
 - Ensure `metadata.json` is created with `type: "feature"`.

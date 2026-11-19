@@ -94,27 +94,28 @@ When the user runs `/conductor-implement` on the generated track, the agent eval
 ### Sequential Fallback Pattern (Phases 1-4)
 If the user declines the swarm or if quota constraints arise, execute phases 1 through 4 sequentially in-process:
 
-### Phase 1: Ingestion & Editorial Triage
-- Ingest the manuscript at `<manuscript_path>`.
-- Launch `@peer-reviewer-editor` (or execute in-process if subagents unavailable) to compute desk-reject risk score (`Low`, `Medium`, `High`) and verify mandatory declarations (ethics, data/code availability).
+### Phase 1: Empirical Ground-Truth Gate & Editorial Triage
+- Run `paper-ground-truth-auditor` before or alongside Round 1 review to verify numerical, table, caption, code-parity, and citation grounding (`audit_discrepancy_matrix.md`).
+- Ingest the manuscript at `<manuscript_path>` and run `@peer-reviewer-editor` (or execute in-process) to compute desk-reject risk (`Low`, `Medium`, `High`) and mandatory declarations.
 
 ### Phase 2: Technical Methodology & Rigor Audit
-- Launch `@peer-reviewer-methodology` to audit baseline fairness, ablation coverage, and statistical integrity (sample sizes, error bars, effect sizes).
+- Launch `@peer-reviewer-methodology` to audit baseline fairness, ablation coverage, statistical integrity, and ground-truth parity (never proposing fabricated ablations).
 - Check against domain reproducibility checklists (ARRIVE, CONSORT, ML Reproducibility Checklist).
 
 ### Phase 3: Literature Grounding & Novelty Search
-- Launch `@peer-reviewer-novelty` to deconstruct novelty claims.
+- Launch `@peer-reviewer-novelty` to deconstruct novelty claims and evaluate `LitReviewQuality` (applying the `<= 60` Critical Analysis cap if purely descriptive).
 - Search external literature (arXiv, Semantic Scholar, Brave search) for preprints and published papers from 2023–2026.
 - Classify contribution level (Substantive, Incremental, Marginal, Re-invention) and list missing citations.
 
-### Phase 4: Report Synthesis & Actionable Delivery
-- Synthesize all findings into `REVIEW_REPORT.md` (saved in the manuscript directory) using `references/templates/REVIEW_REPORT.md`.
+### Phase 4: Report Synthesis, User Approval Gate & Multi-Session Re-Review Loop
+- Synthesize all findings into `REVIEW_REPORT.md` (saved in the manuscript directory) using `references/templates/REVIEW_REPORT.md`, including the calibrated `AgentReview` scorecard (`1–4` axes, `1–10` Overall) and `SxS` dual-order delta (for Round >= 2).
 - Assign synthesized editorial decision (**Accept**, **Minor Revision**, **Major Revision**, **Reject**).
-- Deliver executive chat summary to the author.
+- **Mandatory User Approval Gate:** Send Discord alert (`to-discord $msg -p`) and present all prioritized suggestions (`Actionable Revision Checklist`) to the user for **Approve / Reject / Defer** selection BEFORE modifying any `.tex` file.
+- **Fresh-Session Loop:** Apply only user-approved edits, then repeat verification (`paper-ground-truth-auditor` + `peer-reviewer` with `SxS` dual-order comparison against the prior draft) in a **fresh session** until the manuscript achieves approval with zero critical blockers.
 
 ---
 
 ## When NOT to Use
-- Do NOT use for ghostwriting or rewriting paper prose directly (use `writing-expert`).
+- Do NOT use for ghostwriting or rewriting paper prose directly without review feedback (use `writing-expert`).
 - Do NOT use for student thesis review workflows with the 8-chapter WORK structure (use `review-thesis-work`).
 - Do NOT use when no manuscript draft is provided.

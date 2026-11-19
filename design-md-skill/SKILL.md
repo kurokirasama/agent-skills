@@ -18,7 +18,7 @@ CRITICAL: The output of this skill is a track whose tasks are focused strictly o
 
 ### 1. Analysis Phase
 - **Context Search:** Read `conductor/product.md` and `conductor/tech-stack.md`.
-- **Specification Reference:** Read the official specification summary in `/home/username/workspace/llms_configs/skills/design-md-skill/references/design_md_spec.md`.
+- **Specification Reference:** Read the official specification summary in [references/design_md_spec.md](references/design_md_spec.md).
 - **Brand Inference:** Extract keywords, tone, and core identity from the product definition.
 - **Constraint Identification:** Identify platform constraints (terminal-based, web, mobile) from the tech stack.
 - **Creative Freedom Prompt:** Explicitly ask the user for any aesthetic preferences (e.g., "minimalist", "brutalist", "high-contrast", specific color palettes) that are not explicitly documented in the project files.
@@ -32,19 +32,23 @@ Generate a new track directory (e.g., `conductor/tracks/design_specification_YYY
 
 #### A. `spec.md`
 - **Overview:** High-level goals for the `DESIGN.md` file.
-- **Functional Requirements:** Derived from the `design.md` official specification (See reference in `/home/username/workspace/llms_configs/skills/design-md-skill/references/design_md_spec.md`).
+- **Functional Requirements:** Derived from the `design.md` official specification ([references/design_md_spec.md](references/design_md_spec.md)).
 - **Aesthetic Direction:** Document the preferences gathered during the analysis phase.
 
 #### B. `plan.md`
-The generated plan MUST use a single-pass generation approach for the file content:
+The generated plan MUST follow this lifecycle:
 
 **Phase 1: Design System Authoring**
-- [ ] Task: Generate the full `DESIGN.md` file content, including YAML frontmatter and all mandatory standard sections (Overview, Colors, Typography, Layout, etc.).
+- [ ] Task: Generate the full `DESIGN.md` file content, including YAML frontmatter and all mandatory standard sections (Overview, Colors, Typography, Layout, Dark/Light modes, Mobile responsiveness).
 - [ ] Task: Validate the generated file using the `@google/design.md` CLI: `npx @google/design.md lint DESIGN.md`.
 
 **Phase 2: Environment Enforcement**
-- [ ] Task: Update the project's environment to enforce the newly created `DESIGN.md` as the definitive source of truth for UI, UX, and aesthetics.
-- [ ] Task: Append the following rule to `GEMINI.md` (create it if missing), `conductor/product-guidelines.md`, and `conductor/workflow.md`: "The `DESIGN.md` file is the absolute source of truth for all UI, UX, and aesthetic decisions. You MUST follow its guidelines strictly. Any deviation from `DESIGN.md` requires explicit prior approval from the user."
+- [ ] Task: Wire `DESIGN.md` into the project's AI and Conductor governance files so every agent enforces visual parity without requiring separate cleanup tracks.
+- [ ] Task: Update `GEMINI.md` (and `AGENTS.md`/`CLAUDE.md` if present), `conductor/product-guidelines.md`, `conductor/workflow.md`, and relevant `conductor/code_styleguides/` (`html-css.md`, `javascript.md`, `typescript.md`) with this explicit rule: *"The `DESIGN.md` file is the definitive source of truth for all UI, UX, and aesthetic decisions. Follow its tokens strictly; any deviation requires explicit prior approval from the user."*
+
+**Phase 3: Phased Token Rollout & Codebase Design Audit** *(When UI code already exists — optional for greenfield Stage 3)*
+- [ ] Task: Roll out `DESIGN.md` semantic tokens systematically across **(1) Core/Layout** (theme CSS variables, navbar, footer), **(2) Shared Components**, and **(3) Sub-Pages**.
+- [ ] Task: Audit CSS/templates/components for hardcoded colors, spacing, or font overrides bypassing `DESIGN.md`, and verify responsive Mobile viewports + Dark Mode / Dark Reader contrast parity.
 
 ### 4. Conductor Compliance
 - Ensure `metadata.json` is created with `type: "feature"`.

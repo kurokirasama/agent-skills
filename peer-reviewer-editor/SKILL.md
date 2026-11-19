@@ -28,9 +28,19 @@ Assign a desk-reject probability (**Low**, **Medium**, **High**) with specific e
 
 ## 2. Meta-Review & Decision Synthesis Protocol
 
-### Step 1: Reviewer Critique Calibration
-- Read the reports from `peer-reviewer-methodology` (technical/statistical soundness) and `peer-reviewer-novelty` (literature grounding and prior art).
-- Differentiate fixable presentation/experiment omissions from fatal methodological flaws.
+### Step 1: Reviewer Critique Calibration & `AgentReview` Scoring
+- Read the reports from `peer-reviewer-methodology` (technical/statistical soundness), `peer-reviewer-novelty` (`LitReviewQuality` & prior art), and `paper-ground-truth-auditor` (`audit_discrepancy_matrix.md`).
+- Differentiate fixable presentation/experiment omissions from fatal methodological or ground-truth flaws.
+- Compute calibrated **`AgentReview` Scorecard**:
+  - **Soundness:** `1–4` (`1: poor`, `2: fair`, `3: good`, `4: excellent`)
+  - **Presentation:** `1–4` (`1: poor`, `2: fair`, `3: good`, `4: excellent`)
+  - **Contribution:** `1–4` (`1: poor`, `2: fair`, `3: good`, `4: excellent`)
+  - **Overall Calibrated Rating:** `1–10` (`10: seminal/award`, `8: strong accept`, `6: weak accept`, `5: borderline`, `3: weak reject`, `1: strong reject`).
+
+### Step 1B: `SxS` Dual-Order Revision Evaluation (Round 2+ Only)
+When auditing a revised draft (`vCurr`) against a prior round (`vPrev`) in a **fresh session**:
+- Evaluate `(vPrev, vCurr)` and `(vCurr, vPrev)` in **BOTH presentation orders** to eliminate position bias across: Scientific Depth, Technical Execution, Logical Flow, Clarity, Evidence Presentation, and Academic Style.
+- Record concrete improvements, resolved blockers, and any newly introduced regressions before issuing the updated recommendation.
 
 ### Step 2: Formulate Final Editorial Recommendation
 - **Accept**: Exceptional rigor, clear scientific advance, and high venue relevance.

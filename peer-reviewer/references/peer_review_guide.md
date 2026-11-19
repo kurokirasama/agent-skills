@@ -90,8 +90,11 @@ Referees formulate search queries combining:
 
 ---
 
-## 6. Constructive Feedback Heuristics
+## 6. Constructive Feedback, Calibration & Multi-Session Loops
 
 - **Be Specific & Line-Referenced**: Never say "Section 3 is unclear." Instead write: *"In Section 3.2, Equation 4 omits the definition of parameter $\lambda$. Clarify whether $\lambda$ is dynamically scheduled or fixed."*
 - **Acknowledge Genuine Strengths**: Start with what the authors did well to ground the critique constructively.
 - **Distinguish Fatal Flaws from Nice-to-Haves**: Explicitly separate "Essential for Re-Review" from "Minor Suggestions for Polish".
+- **Anti-Inflation Rule (`LitReviewQuality`)**: If the Related Work / Introduction reads as a paper-by-paper summary without thematic contrast or gap synthesis, cap Critical Analysis at `<= 60/100`.
+- **Calibrated `AgentReview` Axes**: Score Soundness, Presentation, and Contribution on `1–4` (`1: poor, 2: fair, 3: good, 4: excellent`) alongside the `1–10` Overall Recommendation.
+- **`SxS` Dual-Order Verification (Multi-Session Loop)**: For Round 2+ verification in a fresh session, evaluate `vPrev` vs `vCurr` in BOTH `(A=vPrev, B=vCurr)` and `(A=vCurr, B=vPrev)` orders to avoid position bias, confirm zero numerical regressions via `paper-ground-truth-auditor`, and require user approval before applying any suggested manuscript modifications.

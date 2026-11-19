@@ -1,54 +1,60 @@
 ---
 name: deep-research
-description: High-level orchestrator for end-to-end research, parallelizing native Gemini Deep Research with the retrieval/synthesis pipeline.
+description: High-level orchestrator for end-to-end research, parallelizing native Gemini Deep Research (with user cost approval) and multi-source retrieval/synthesis, supporting Dual-Journal Candidacy ranking and Capped Refresh updates.
 ---
 # Deep Research Orchestrator
 
 ## Objective
-Your objective is to conduct an exhaustive, end-to-end research task on a specific topic. You will orchestrate a multi-track pipeline that parallelizes native background research with a deep retrieval and synthesis workflow.
+Conduct an exhaustive, end-to-end research task on a specific topic by parallelizing native background research (`gemini-deep-research`) with a multi-source retrieval and synthesis pipeline (`deep-retrieval-task` + `source-retrieval-task`).
 
-## 1. Preparation & Cost Approval
-**CRITICAL**: This pipeline utilizes the `gemini-deep-research` skill, which incurs a cost. You MUST explicitly ask the user for approval for the entire pipeline before proceeding.
+Supports two specialized academic modes in addition to general research (see [references/journal_candidacy_and_refresh.md](references/journal_candidacy_and_refresh.md)):
+1. **Full Bibliographical & Dual-Journal Candidacy Mode (Stage 2):** Produces verified BibTeX, downloaded PDFs/summaries, and `journal_candidates_report.md` ranking **Primary (1st Attempt)** + **Minimal-Reformat Cascade Backup** journals for user selection.
+2. **Capped Refresh Mode (`refresh`, Stage 4):** Time-bounded post-implementation delta pass covering recent months of literature and re-evaluating Primary/Backup venues if project scope expanded or shifted.
 
-- **Unified Topic Definition**: Clearly define the research topic and classification (Scientific vs. Knowledge).
-- **Approval Prompt**: "The `deep-research` orchestrator will parallelize the native Gemini Deep Research Nushell command with a multi-phase retrieval and synthesis pipeline. This process incurs a cost. Do you approve its usage for this task?"
-- **Fallback**: If the user declines, proceed using ONLY standard, non-cost-bearing logic for both `deep-retrieval-task` and `source-retrieval-task`.
+---
+
+## 1. Preparation & Cost Approval (Mandatory Gate)
+**CRITICAL**: This pipeline utilizes `gemini-deep-research`, which incurs an API cost. You MUST send a Discord notification (`to-discord $msg -p`) and explicitly ask the user for approval before proceeding.
+
+- **Unified Topic Definition**: Clearly define the research topic, mode (`Full` vs `Capped Refresh` with date cutoff), and classification (Scientific vs Knowledge).
+- **Approval Prompt**: *"The `deep-research` orchestrator will parallelize the native Gemini Deep Research command (`ai deep-research start --max`) with the retrieval and synthesis pipeline. This incurs an API cost. Do you approve its usage for this task?"*
+- **Fallback**: If the user declines, proceed using ONLY non-paid retrieval logic (`deep-retrieval-task`, `source-retrieval-task`, and academic MCP tools: arXiv, OpenAlex, Europe PMC, PubMed, Exa).
+
+---
 
 ## 2. Parallel Execution Phase
-Once approved, you must initiate the parallel tracks:
+Once approved (or in non-paid fallback mode), execute the parallel tracks:
 
 ### Deep Research Swarm Option
-For extensive multi-domain research, the orchestrator may deploy a **Deep Research Swarm**:
-- **Approval Gate**: Send Discord alert (`to-discord $msg -p`), then prompt user:
-  > "Multi-domain research topic detected. Would you like to spawn a Deep Research Swarm with sharded research workers across scholarly and web sources?"
-- **Roster Configuration (`workspace: "inherit"`)**:
-  - `scholar-worker`: Queries academic databases (arXiv, Europe PMC, OpenAlex) for peer-reviewed literature.
-  - `web-worker`: Executes deep web scraping, documentation indexing, and news retrieval.
-  - `synthesis-worker`: Chunks, indexes, and organizes findings on the shared board.
-  - `monitor`: Stall watchdog running `swarm_monitor`.
-- **Manual Slash Command**: Suggest: `/swarm Research topic <topic_query>`.
+For extensive multi-domain research, propose a **Deep Research Swarm** (never launch without Discord alert + user approval):
+- **Roster (`workspace: "inherit"`):** `scholar-worker` (arXiv, Europe PMC, OpenAlex, Semantic Scholar), `web-worker` (web scraping, publisher guidelines, news), `synthesis-worker` (indexing, BibTeX & summary synthesis), `monitor` (`swarm_monitor`).
+- **Manual Slash Command:** `/swarm Research topic <topic_query>`.
 
 ### Dual Track Execution (Default / Fallback)
-### Track A: Native Gemini Deep Research
-- Activate and use the **`gemini-deep-research`** skill.
-- Initiate background research using the Nushell command `ai deep-research start "<refined_prompt>" --max`.
-- Note the Research ID and continue to Track B.
+- **Track A (Native Gemini Deep Research — only if cost approved):**
+  - Activate `gemini-deep-research` and run `ai deep-research start "<refined_prompt>" --max`.
+  - Record the Research ID and continue immediately to Track B.
+- **Track B (Retrieval Pipeline):**
+  - Execute `deep-retrieval-task` (respecting date bounds in Capped Refresh Mode) to collect candidate source URLs and scholarly DOIs.
+  - Download accessible full-text PDFs into `bibliography/papers/` and pass URLs to `source-retrieval-task` for RAG-based synthesis and structured Markdown summaries in `bibliography/summaries/`.
 
-### Track B: Retrieval Pipeline
-- Immediately execute the **`deep-retrieval-task`** skill to find a comprehensive list of source URLs.
-- Once Track B is complete, immediately trigger the **`source-retrieval-task`** skill.
-- Provide the list of URLs from Track B as input for content extraction and RAG-based synthesis.
+---
 
 ## 3. Monitoring & Convergence
-- Periodically check the status of the native background research from Track A using the Nushell command `ai deep-research status --id "<id>"`.
-- Simultaneously monitor the progress of the retrieval/synthesis pipeline in Track B.
-- Ensure that the final synthesis in `source-retrieval-task` is performed once all relevant sources are downloaded.
+- Poll Track A status with `ai deep-research status --id "<id>"` while completing Track B synthesis.
+- Cross-check all collected DOIs/BibTeX entries (no fabricated titles, authors, years, or venues).
 
-## 4. Final Consolidation
-Once both the native report (from Track A) and the grounded synthesis (from Track B) are complete:
-- Retrieve the native report using the Nushell command `ai deep-research retrieve`.
-- Combine the insights from both sources.
-- Present a final, comprehensive package that includes:
-    1. The native Deep Research report.
-    2. The grounded synthesis based on the retrieval pipeline.
-    3. The consolidated list of sources.
+---
+
+## 4. Final Consolidation & Venue Ranking
+
+Retrieve Track A (`ai deep-research retrieve`) and merge with Track B into `bibliography/search/<run_slug>/`:
+1. **Consolidated Research Report:** Native deep research findings + grounded synthesis + chronological SOTA gaps.
+2. **Verified References:** Updated `.bib` database + per-paper summaries + source URL manifest.
+3. **Dual-Journal Candidacy Report (`journal_candidates_report.md` — when academic publication is in scope):**
+   Following [references/journal_candidacy_and_refresh.md](references/journal_candidacy_and_refresh.md), evaluate JCR/Scopus Q1/Q2 candidates, APC (`$0` subscription vs Open Access), bibliography overlap, and template compatibility, then present **at least 2 paired journal options** for the user to choose from:
+   - **Attempt 1 (Primary Target):** Best impact/scope match for initial submission.
+   - **Cascade Backup Target:** Same publisher family or minimal-reformat alternative requiring minimal manuscript changes if rejected.
+
+## Progressive Disclosure
+- **Dual-Journal Candidacy & Capped Refresh Guide:** [references/journal_candidacy_and_refresh.md](references/journal_candidacy_and_refresh.md)

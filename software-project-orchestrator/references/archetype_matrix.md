@@ -1,0 +1,16 @@
+# Software Archetype Skill Matrix
+
+Select the matching archetype during Step 2 of `software-project-orchestrator` to tailor Stages 3–8 in `project-plan.md`:
+
+| Archetype | Stage 3 Design & Spec | Stage 4 Core Build Skills | Stage 6 Pre-Release Audit Skills | Stage 8 Deploy / Ship Skills |
+| :--- | :--- | :--- | :--- | :--- |
+| **`web`** (Fullstack / SPA Web App) | `design-md-skill` (`Author->Enforce`), `frontend-design`, `mermaid-diagram-creator` | `programmer-expert`, `fastapi-templates`, `frontend-design`, `pandas-pro`, `python-testing-patterns`, `test-engineer`, `debug-specialist` | `conductor-review`, `security-analyst-specialist`, `security-programmer-specialist`, `accessibility`, `seo`, `python-testing-patterns`, `test-engineer` | `podman-operator`, `homelab-admin`, `linux-expert`, `bash-defensive-patterns` |
+| **`static`** (Landing / Docs / Portfolio Site) | `design-md-skill` (`Author->Enforce`), `frontend-design` | `frontend-design`, `programmer-expert`, `test-engineer` | `conductor-review`, `accessibility`, `seo`, `security-analyst-specialist` | `linux-expert`, `homelab-admin` (or filtered SFTP/Pages deploy) |
+| **`api`** (Backend Service / Microservice) | `mermaid-diagram-creator` (API/schema design) | `fastapi-templates`, `programmer-expert`, `pandas-pro`, `rust-best-practices` / `nushell-expert`, `python-testing-patterns`, `test-engineer`, `debug-specialist` | `conductor-review`, `security-analyst-specialist`, `security-programmer-specialist`, `python-testing-patterns`, `test-engineer` | `podman-operator`, `homelab-admin`, `network-engineer`, `bash-defensive-patterns` |
+| **`cli`** (CLI Tool / Shell Utility) | `mermaid-diagram-creator` (dataflow/CLI grammar) | `rust-best-practices`, `nushell-expert`, `bash-defensive-patterns`, `programmer-expert`, `python-testing-patterns`, `test-engineer` | `conductor-review`, `security-analyst-specialist`, `security-programmer-specialist`, `python-testing-patterns`, `test-engineer` | `linux-expert`, package build (`cargo` / system install / Nginx static binary) |
+| **`plugin`** (Nushell / Editor / Tool / TS Plugin) | `mermaid-diagram-creator` (protocol/IPC contract) | `rust-best-practices`, `nushell-expert`, `ox-programmer`, `programmer-expert`, `test-engineer` | `conductor-review`, `security-analyst-specialist`, `test-engineer`, `nushell-update-evaluator` | `linux-expert`, local binary & plugin registry sync |
+| **`automation`** (Cron / GAS `clasp` / Bot / Infra Script) | `mermaid-diagram-creator` (state/trigger flow) | `nushell-expert`, `bash-defensive-patterns`, `programmer-expert`, `pandas-pro`, `python-testing-patterns`, `test-engineer` | `conductor-review`, `security-analyst-specialist`, `test-engineer` | `podman-operator`, `linux-expert`, `cron-skills-expert` (`clasp push` for GAS) |
+
+**Cross-Archetype Conditionals:**
+- **Python Backend / Data Stack:** Activate `fastapi-templates` (Async REST, RORO, Pydantic v2, SQLAlchemy 2.0), `python-testing-patterns` (`pytest`, `httpx.AsyncClient`, fixtures, `mutmut`), and `pandas-pro` (vectorized tabular pipelines).
+- **AI / LLM / RAG Features:** Add `conductor/code_styleguides/llm-security.md` in Stage 3, enable per-task security review in `conductor/workflow.md`, and run Report-First `.gemini_security/` audits in Stage 6.

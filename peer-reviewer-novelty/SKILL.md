@@ -28,9 +28,14 @@ Classify the contribution into one of four distinct tiers:
 3. **Marginal / Derivative Delta**: Minor parameter tweak or routine application of standard techniques with low scientific impact.
 4. **Re-invention of Known Art**: Core idea is already documented in published literature; severe failure of literature survey.
 
-### 4. Citation Gap Audit
-- List all landmark, recent, or highly relevant papers that were omitted from the manuscript's bibliography.
-- Instruct authors on how these references alter the positioning of their work.
+### 4. Citation Gap Audit & `LitReviewQuality` Anti-Inflation Rubric
+- List all landmark, recent, or highly relevant papers omitted from the manuscript's bibliography.
+- Instruct authors on how these references alter positioning and flag any unsubstantiated SOTA superiority claims.
+- Score the literature review (`Introduction` + `Related Work`) strictly across 3 axes (`0–100`):
+  1. **Coverage & Completeness** (breadth across foundational & recent 2023–2026 clusters, calibrated against target venue citation norms).
+  2. **Relevance & Focus** (alignment with core claims; zero citation padding).
+  3. **Critical Analysis & Synthesis** (thematic grouping, trade-off analysis, and explicit gap positioning).
+- **Hard Anti-Inflation Cap (PaperOrchestra Rule):** If the literature review is mostly descriptive paper-by-paper summaries rather than comparative thematic synthesis, **Critical Analysis & Synthesis MUST be capped at `<= 60/100`**.
 
 ---
 
@@ -39,7 +44,8 @@ Classify the contribution into one of four distinct tiers:
   1. Summary of Claimed Novelty.
   2. Discovered Prior Art & Overlapping Literature with citations.
   3. Missing Citations & Context Gaps.
-  4. Novelty Classification & Rating (1–10) with detailed justification.
+  4. `LitReviewQuality` Scores (`Coverage`, `Relevance`, `Critical Analysis <=60 cap if descriptive`).
+  5. Novelty Classification & Rating (1–10) with detailed justification.
 
 ---
 

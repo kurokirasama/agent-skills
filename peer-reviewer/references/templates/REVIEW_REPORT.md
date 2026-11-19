@@ -31,6 +31,9 @@
 | **Clarity, Structure & Presentation** | {{SCORE_PRESENTATION}} | {{SUMMARY_PRESENTATION}} |
 
 **Overall Recommendation Score:** {{OVERALL_SCORE}}/10
+- **AgentReview Axes (1–4):** Soundness: {{SCORE_SOUNDNESS}}/4 | Presentation: {{SCORE_PRESENTATION_4}}/4 | Contribution: {{SCORE_CONTRIBUTION}}/4
+- **LitReviewQuality (0–100):** Coverage: {{LIT_COVERAGE}} | Relevance: {{LIT_RELEVANCE}} | Critical Analysis (<=60 cap if descriptive): {{LIT_ANALYSIS}}
+- **Ground-Truth Audit Status (`paper-ground-truth-auditor`):** {{GROUND_TRUTH_STATUS}} <!-- PASS / N discrepancies in audit_discrepancy_matrix.md -->
 
 ---
 
@@ -85,7 +88,15 @@
 
 ---
 
-## 7. Actionable Revision Checklist for Authors
+## 7. Actionable Revision Checklist for Authors (Requires User Approval Before Editing)
 - [ ] **Priority 1 (Critical):** {{ACTION_ITEM_1}}
 - [ ] **Priority 2 (Major):** {{ACTION_ITEM_2}}
 - [ ] **Priority 3 (Clarification/Polish):** {{ACTION_ITEM_3}}
+
+---
+
+## 8. Multi-Session `SxS` Dual-Order Delta (Round 2+ Only)
+- **Evaluated Versions:** `{{V_PREV}}` vs `{{V_CURR}}` (verified in both A/B and B/A presentation orders)
+- **Resolved Prior Blockers:** {{RESOLVED_BLOCKERS}}
+- **Remaining / Newly Introduced Issues:** {{REMAINING_ISSUES}}
+- **Net Quality Delta Verdict:** {{SXS_VERDICT}} <!-- Strong Improvement / Moderate Improvement / Neutral / Regression -->

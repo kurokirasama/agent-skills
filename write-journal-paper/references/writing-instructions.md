@@ -1,24 +1,32 @@
-# Journal Paper Writing Instructions (14-step procedure)
+# Journal Paper Writing Instructions
 
-Source of truth for the paper-writing workflow. The track's `howto.md` is generated from this document plus the user's inputs.
+Source of truth for the `write-journal-paper` Conductor workflow. The track's `howto.md` is generated from this guide plus [paper_orchestra_protocols.md](./paper_orchestra_protocols.md) and the user's gathered inputs.
 
 ## Procedure
-1. Activate the `latex-expert` and `writing-expert` skills to guide compilation and writing.
-2. Identify the top-1 candidate journal for publication from `bibliography/`. Research the journal: its guidelines and previous similar and dissimilar publications. Write the resulting writing plan/specification into the track `spec.md` or wherever appropriate in the track artifacts.
-3. Follow an include strategy: `main.tex` only holds `\include` items for the different sections; each section in a separate file; `figures/` and `tables/` subfolders so the main folder stays uncluttered; one file per table, `\include`d from its section.
-4. Write all section headers/files, empty for now. At this state the document MUST compile without errors.
-5. Read `bibliography/` completely to understand the state of the art. Fill the `.bib` file with all necessary references.
-6. Read the results source directory completely, especially the reports, to understand the results, available figures and tables.
-7. Read `docs/` completely; useful material is likely stored there.
-8. Copy all tables and figures to be used into `figures/` and `tables/`. When available, always prefer the PDF version of figures.
-9. In the introduction or state of the art (where appropriate), state clearly the difference between the proposed method and the state of the art, and why the proposed approach remains relevant even when more recent or popular alternatives exist (specific contrasts come from the user's requirements).
-10. Do NOT mention capabilities reserved for future papers. Apply every mention/avoid constraint provided by the user.
-11. Give full detail of the results, with proper explanations and insights into what was found.
-12. Orient the discussion section to the best possible approach for publication in the target journal. Include future-work ideas: adding penalties to the fitness function, expanding to other NN architectures, implementing new training algorithms.
-13. In the acknowledgments, mention the funding received (details provided by the user).
-14. After everything is written and compiles, spawn parallel `writing-expert` agents, one per non-empty tex file, to improve and humanize the wording.
-15. Present the final result for the user to read and give feedback.
+1. **Activate Core Skills & Target Guidelines:**
+   - Activate `latex-expert` and `writing-expert`.
+   - Identify the selected **Primary (Attempt 1)** journal from `journal_candidates_report.md` (or `bibliography/`). Download the official **Author Guidelines** and **LaTeX Template** (`.cls`, `.bst`, page/word limits, highlights/graphical abstract rules); if gated behind a portal, ask the user via Discord + interactive prompt.
+2. **Synthesize Master `outline.json` & `citation_map.json`:**
+   - Read `bibliography/`, `docs/`, and the local results reports (`summary_report.md`, `insights_report.md`) completely via `context-mode`.
+   - Build `outline.json` (`plotting_plan`, separated `intro_related_work_plan`, balanced `section_plan` with zero orphaned `X.1` subsections, page-budget targets) and verified `citation_map.json` (only verified `.bib` keys).
+3. **Scaffold Modular LaTeX Architecture:**
+   - Use `\include`/`\input` modular files under `articles/<paper_slug>/` (`main.tex`, `sections/*.tex`, `figures/`, `tables/`, `.bib`) so `main.tex` remains clean.
+   - Create empty section headers/files first and confirm clean error-free compilation at baseline.
+4. **Generate & Audit Publication Figures/Tables (Locally Only):**
+   - Prefer vector PDFs for plots and `booktabs` (`\toprule`, `\midrule`, `\bottomrule`) for tables.
+   - Apply the PaperBanana 5-stage visual critic loop (up to 3 rounds) to confirm crisp legends, readable typography, and zero clipped labels.
+5. **Author Grounded Manuscript Sections:**
+   - **Introduction & Related Work:** Strictly enforce the SOTA contrast, novelty positioning, and timeline-cutoff/anti-hallucination rules (never claim superiority over an uncompared paper; never invent citations).
+   - **Methodology & Experiments:** Match exact hyperparameters, splits, statistical tests, and budget numbers from code and `insights_report.md`.
+   - **Results & Discussion:** Give complete empirical explanations, qualitative mechanisms, limitations, and well-scoped **Future Work** oriented to the target journal — strictly omitting any capabilities reserved for future papers (`mention`/`avoid` constraints).
+   - **Acknowledgments:** Include exact funding/grant details provided by the user and CRediT / Ethics / Data Availability statements required by the journal.
+6. **Parallel Prose Refinement & Humanization:**
+   - Once the full manuscript compiles cleanly, spawn parallel `writing-expert` agents (one per non-empty section `.tex` file, after user approval if swarming, or sequentially) to polish prose, burstiness, perplexity, and academic flow without altering any numbers or `\cite{}` keys.
+7. **`FormatAgent` PDF Layout & Page-Limit Inspection:**
+   - Re-compile full PDF, render pages (`pdftoppm -png`), and inspect visually for table/margin overflows, figure placement before Conclusion, orphan headings, and exact adherence to page/highlight limits.
+8. **Verification Handoff & User Presentation:**
+   - Present the compiled draft PDF and summary to the user, and explicitly recommend running Stage 6 verification in a fresh session via `paper-ground-truth-auditor` and `peer-reviewer` before final packaging.
 
 ## Notes
-- Steps map to track plan phases: (1-2) Setup & Journal Research; (3-4) LaTeX Scaffold; (8) Figures & Tables Ingestion; (5-7, 9-13) Content Writing; (14) Humanization; (15) Final Compilation & User Review.
-- The generated track's `plan.md` MUST instruct reading `howto.md` first, as a starting point only.
+- Plan phases typically map to: `(1–2) Guidelines, Outline & Citation Map` → `(3) Modular LaTeX Scaffold` → `(4) Visuals & Tables Audit` → `(5) Section Drafting` → `(6–7) Writing-Expert Humanization & FormatAgent PDF Audit` → `(8) Verification & Review Handoff`.
+- Every generated `plan.md` MUST instruct reading `howto.md` first as a starting point, not a contract.

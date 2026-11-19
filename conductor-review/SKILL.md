@@ -126,6 +126,14 @@ Format the review findings:
 ```
 ```
 
+### 2.5 Pre-Release Multi-Session Audit Mode (Milestone / Full-Codebase Gate)
+
+When auditing a complete software project or release candidate (Stage 6 of `software-project-orchestrator`, rather than a single small track diff), follow [references/prerelease_audit_protocol.md](references/prerelease_audit_protocol.md):
+1. Audit across all **5 dimensions**: Architecture/Spec compliance (`conductor-review`), Security & Secrets (`security-analyst-specialist` + `security-programmer-specialist`), Tests & Mutation (`test-engineer`), Web/UI (`accessibility` + `seo` + `DESIGN.md` when applicable), and Docs/Runbook parity.
+2. Produce a severity-ranked report (`CRITICAL`, `HIGH`, `MEDIUM`, `LOW`) with exact file/line references.
+3. **Mandatory User Approval Gate:** Send Discord notification (`to-discord $msg -p`) and present proposed fixes to the user BEFORE modifying production code.
+4. **Fresh-Session Delta Loop:** After applying approved edits, repeat verification in a **fresh agent session** (tracking resolved blockers vs regressions) until zero `CRITICAL` / `HIGH` issues remain and the user signs off for release.
+
 ---
 
 ## 3. Completion Phase
